@@ -1,0 +1,74 @@
+- name: Deploy app
+  hosts: east
+  gather_facts: false
+
+  vars:
+    appname: test123
+    beacon_token: "token"
+
+  tasks:
+
+    - name: Install a list of packages
+      apt:
+        pkg:
+        - docker.io
+        - python3-pip
+        - docker-compose
+        - stress-ng  
+        update_cache: yes
+      become: yes
+
+    - name: Copy Files Over
+      synchronize:
+        src: ../../bacon_app
+        dest: /home/ubuntu/
+        rsync_opts:
+          - "--exclude=node_modules"
+          - "--exclude=.venv"
+      become: yes
+
+
+
+    # INSTALL TELEGRAF
+
+    - name: Import InfluxData GPG signing key [Debian/Ubuntu]
+      apt_key:
+        url: "https://repos.influxdata.com/influxdb.key"
+        state: present
+      become: yes
+
+    - name: Add InfluxData repository [Debian/Ubuntu]
+      apt_repository:
+        repo: "deb https://repos.influxdata.com/ubuntu bionic stable"
+        state: present
+      become: yes
+
+    - name: Install Telegraf packages [Debian/Ubuntu]
+      apt:
+        name: telegraf
+        state: latest
+        update_cache: yes
+      register: apt_result
+      become: yes
+
+    - name: Set templatized Telegraf configuration
+      template:
+        src: ./templates/tgbase.conf
+        dest: /etc/telegraf/telegraf.conf
+        force: yes
+      become: yes
+
+    - name: Set templatized Telegraf configuration
+      template:
+        src: "{{ item }}"
+        dest: "/etc/telegraf/telegraf.d/{{ item.split('/')[-1] }}"
+        force: yes
+      become: yes   
+      loop: "{{ lookup('fileglob', 'templates/tg_plugins/*', wantlist=True) }}"
+
+    - name: restart telegraf
+      service:
+        name: telegraf
+        state: restarted
+      become: yes
+    
