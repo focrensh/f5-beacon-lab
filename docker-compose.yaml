@@ -6,7 +6,7 @@ services:
       - "8080:80"
       - "8485:8485"
     volumes:
-      - ./react/build:/var/www
+      # - ./react/build:/var/www
       - ./react/nginx.conf:/etc/nginx/nginx.conf
       - ./react/configs:/etc/nginx/conf.d
   eapi:
