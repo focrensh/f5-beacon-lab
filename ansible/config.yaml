@@ -18,7 +18,18 @@
         update_cache: yes
       become: yes
 
-    - name: Copy Files Over
+    - pip:
+        name: docker
+        executable: pip3
+      become: true
+
+    - pip:
+        name: docker-compose
+        executable: pip3
+      become: true
+
+
+    - name: Copy App Files Over
       synchronize:
         src: ../../bacon_app
         dest: /home/ubuntu/
@@ -28,9 +39,26 @@
       become: yes
 
 
+    - name: Copy NGNINX certs
+      synchronize:
+        src: ../../../certs
+        dest: /home/ubuntu/bacon_app/nginx-plus-nap/
+        rsync_opts:
+          - "--exclude=node_modules"
+          - "--exclude=.venv"
+      become: yes
 
-    # INSTALL TELEGRAF
+    #Docker-Compose Build/Start
+    - name: Create and start services
+      community.general.docker_compose:
+        project_src: /home/ubuntu/bacon_app
+        # project_name: "{{ inventory_hostname }}"
+        build: yes
+      register: output
+      become: true
 
+
+    # INSTALL and SETUP TELEGRAF
     - name: Import InfluxData GPG signing key [Debian/Ubuntu]
       apt_key:
         url: "https://repos.influxdata.com/influxdb.key"
