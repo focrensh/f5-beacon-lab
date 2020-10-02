@@ -1,5 +1,5 @@
 - name: Deploy app
-  hosts: east
+  hosts: all
   gather_facts: false
 
   vars:
@@ -27,7 +27,6 @@
         name: docker-compose
         executable: pip3
       become: true
-
 
     - name: Copy App Files Over
       synchronize:
