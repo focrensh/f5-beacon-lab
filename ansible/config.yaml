@@ -1,12 +1,22 @@
 - name: Deploy app
-  hosts: all
+  hosts: bacon
   gather_facts: false
 
   vars:
     appname: test123
     beacon_token: "token"
 
+  vars_files:
+    - /vars/external_vars.yml
+
   tasks:
+
+
+    - name: Wait for VMs to be online
+      ansible.builtin.wait_for:
+        port: 22
+        delay: 5
+        timeout: 300
 
     - name: Install a list of packages
       apt:
@@ -76,6 +86,10 @@
         state: latest
         update_cache: yes
       register: apt_result
+      become: yes
+
+    - name: Enable TG to poll docker
+      shell: usermod -aG docker telegraf
       become: yes
 
     - name: Set templatized Telegraf configuration

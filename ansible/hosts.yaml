@@ -1,12 +1,12 @@
 ---
     bacon:
         hosts:
-            east_bacon:
+            bacon_east:
                 ansible_python_interpreter: /usr/bin/python3
                 ansible_host: 10.1.1.5
                 ansible_ssh_private_key_file: ~/.ssh/id_rsa
                 ansible_user: ubuntu
-            west_bacon:
+            bacon_west:
                 ansible_python_interpreter: /usr/bin/python3
                 ansible_host: 10.1.1.6
                 ansible_ssh_private_key_file: ~/.ssh/id_rsa
