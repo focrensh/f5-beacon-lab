@@ -1,13 +1,9 @@
-- name: Deploy app
+- name: Deploy Bacon App
   hosts: bacon
   gather_facts: false
 
-  vars:
-    appname: test123
-    beacon_token: "token"
-
   vars_files:
-    - /vars/external_vars.yml
+    - vars.yaml
 
   tasks:
 
@@ -55,6 +51,7 @@
         rsync_opts:
           - "--exclude=node_modules"
           - "--exclude=.venv"
+      ignore_errors: yes # In case rebuilding is not needed, check for certs existing in future.
       become: yes
 
     #Docker-Compose Build/Start

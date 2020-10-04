@@ -1,0 +1,83 @@
+{
+    "title": "Bacon MongoDB East",
+    "description": "",
+    "category": "INS_CAT_OPERATIONS",
+    "severity": "INS_SEV_INFORMATIONAL",
+    "metrics": [
+        {
+            "measurement": "mongodb",
+            "tags": [
+                {
+                    "key": "host",
+                    "values": [
+                        "bacon_east"
+                    ]
+                }
+            ],
+            "field": "connections_current",
+            "function": "mean",
+            "metricName": "Connections"
+        },
+        {
+            "measurement": "mongodb",
+            "tags": [
+                {
+                    "key": "host",
+                    "values": [
+                        "bacon_east"
+                    ]
+                }
+            ],
+            "field": "deletes_diff",
+            "function": "mean",
+            "metricName": "Deletes"
+        },
+        {
+            "measurement": "mongodb",
+            "tags": [
+                {
+                    "key": "host",
+                    "values": [
+                        "bacon_east"
+                    ]
+                }
+            ],
+            "field": "document_inserted_diff",
+            "function": "mean",
+            "metricName": "Inserts"
+        },
+        {
+            "measurement": "mongodb",
+            "tags": [
+                {
+                    "key": "host",
+                    "values": [
+                        "bacon_east"
+                    ]
+                }
+            ],
+            "field": "document_returned_diff",
+            "function": "mean",
+            "metricName": "Doc Returns"
+        },
+        {
+            "measurement": "mongodb",
+            "tags": [
+                {
+                    "key": "host",
+                    "values": [
+                        "bacon_east"
+                    ]
+                }
+            ],
+            "field": "queries_diff",
+            "function": "mean",
+            "metricName": "Queries"
+        }
+    ],
+    "visualizationType": "VISUALIZATION_TYPE_STACKED_AREA",
+    "period": "1d",
+    "analysis": null,
+    "healthStatus": "NONE",
+    "healthStatusReason": ""
+}

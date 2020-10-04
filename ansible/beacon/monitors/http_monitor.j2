@@ -1,0 +1,26 @@
+{
+    "action": "deploy",
+    "declaration": [
+        {
+            "metadata": {
+                "Version": "v1",
+                "Operation": ""
+            },
+            "monitor": {
+                "name": "{{ item.name }}",
+                "description": "",
+                "url": "{{ item.url }}",
+                "method": "GET",
+                "interval": 30,
+                "type": "MONITOR_TYPE_HEALTH_CHECK",
+                "transformUrl": "",
+                "requestHeaders": "",
+                "transformHeaders": "",
+                "onFailureCount": 1,
+                "receive": "",
+                "ignoreCertErrors": true,
+                "requestBody": ""
+            }
+        }
+    ]
+}

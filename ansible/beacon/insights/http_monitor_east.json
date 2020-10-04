@@ -1,0 +1,69 @@
+{
+    "title": "Bacon East Monitor",
+    "description": "",
+    "category": "INS_CAT_OPERATIONS",
+    "severity": "INS_SEV_INFORMATIONAL",
+    "metrics": [
+        {
+            "measurement": "monitor",
+            "tags": [
+                {
+                    "key": "source",
+                    "values": [
+                        "Bacon East"
+                    ]
+                }
+            ],
+            "field": "tlsHandshakeMs",
+            "function": "mean",
+            "metricName": "tlsHandshakeMs"
+        },
+        {
+            "measurement": "monitor",
+            "tags": [
+                {
+                    "key": "source",
+                    "values": [
+                        "Bacon East"
+                    ]
+                }
+            ],
+            "field": "serverProcessingMs",
+            "function": "mean",
+            "metricName": "serverProcessingMs"
+        },
+        {
+            "measurement": "monitor",
+            "tags": [
+                {
+                    "key": "source",
+                    "values": [
+                        "Bacon East"
+                    ]
+                }
+            ],
+            "field": "contentTransferMs",
+            "function": "mean",
+            "metricName": "contentTransferMs"
+        },
+        {
+            "measurement": "monitor",
+            "tags": [
+                {
+                    "key": "source",
+                    "values": [
+                        "Bacon East"
+                    ]
+                }
+            ],
+            "field": "httpRequestTimeMs",
+            "function": "mean",
+            "metricName": "httpRequestTimeMs"
+        }
+    ],
+    "visualizationType": "VISUALIZATION_TYPE_LINE",
+    "period": "1d",
+    "analysis": null,
+    "healthStatus": "NONE",
+    "healthStatusReason": ""
+}

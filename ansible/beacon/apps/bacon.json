@@ -1,0 +1,230 @@
+{
+  "action": "deploy",
+  "declaration": [
+    {
+      "metadata": {
+        "version": "v1"
+      },
+      "application": {
+        "name": "Bacon_NEW",
+        "description": "",
+        "labels": {
+          "latitude": "47.608013",
+          "location": "Seattle",
+          "longitude": "-122.335167"
+        },
+        "dependencies": [
+          {
+            "name": "East",
+            "description": "",
+            "labels": {},
+            "dependencies": [
+              {
+                "name": "WAF-ASM",
+                "description": "",
+                "labels": {},
+                "dependencies": [
+                  {
+                    "name": "BIG-IP",
+                    "description": "",
+                    "labels": {},
+                    "dependencies": [
+                      {
+                        "name": "MongoDB-E",
+                        "description": "",
+                        "labels": {},
+                        "dependencies": [],
+                        "metrics": [],
+                        "healthSourceSettings": {
+                          "metricsHealthAggregation": "WorstOf",
+                          "dependencyHealthAggregation": "WorstOf"
+                        },
+                        "insights": []
+                      },
+                      {
+                        "name": "FrontEnd-E",
+                        "description": "",
+                        "labels": {},
+                        "dependencies": [],
+                        "metrics": [],
+                        "healthSourceSettings": {
+                          "metricsHealthAggregation": "WorstOf",
+                          "dependencyHealthAggregation": "WorstOf"
+                        },
+                        "insights": []
+                      },
+                      {
+                        "name": "API-E",
+                        "description": "",
+                        "labels": {},
+                        "dependencies": [],
+                        "metrics": [],
+                        "healthSourceSettings": {
+                          "metricsHealthAggregation": "WorstOf",
+                          "dependencyHealthAggregation": "WorstOf"
+                        },
+                        "insights": []
+                      }
+                    ],
+                    "metrics": [],
+                    "healthSourceSettings": {
+                      "metricsHealthAggregation": "WorstOf",
+                      "dependencyHealthAggregation": "WorstOf"
+                    },
+                    "insights": []
+                  }
+                ],
+                "metrics": [],
+                "healthSourceSettings": {
+                  "metricsHealthAggregation": "WorstOf",
+                  "dependencyHealthAggregation": "WorstOf"
+                },
+                "insights": []
+              }
+            ],
+            "metrics": [
+              {
+                "measurement": "cpu",
+                "tags": {
+                  "host": "bacon_east"
+                },
+                "field": "usage_user",
+                "healthSettings": {
+                  "aggregation": "Mean",
+                  "timeRange": 1,
+                  "operator": "GreaterThan",
+                  "criticalThreshold": "75",
+                  "warningThreshold": "50",
+                  "noMetricData": "KeepState"
+                },
+                "name": ""
+              }
+            ],
+            "healthSourceSettings": {
+              "metricsHealthAggregation": "WorstOf",
+              "dependencyHealthAggregation": "WorstOf"
+            },
+            "insights": [
+              {
+                "name": "VM East"
+              },
+              {
+                "name": "Containers East"
+              }
+            ]
+          },
+          {
+            "name": "West",
+            "description": "",
+            "labels": {},
+            "dependencies": [
+              {
+                "name": "WAF-EAP",
+                "description": "",
+                "labels": {},
+                "dependencies": [
+                  {
+                    "name": "NGINX Plus",
+                    "description": "",
+                    "labels": {},
+                    "dependencies": [
+                      {
+                        "name": "MongoDB-W",
+                        "description": "",
+                        "labels": {},
+                        "dependencies": [],
+                        "metrics": [],
+                        "healthSourceSettings": {
+                          "metricsHealthAggregation": "WorstOf",
+                          "dependencyHealthAggregation": "WorstOf"
+                        },
+                        "insights": []
+                      },
+                      {
+                        "name": "FrontEnd-W",
+                        "description": "",
+                        "labels": {},
+                        "dependencies": [],
+                        "metrics": [],
+                        "healthSourceSettings": {
+                          "metricsHealthAggregation": "WorstOf",
+                          "dependencyHealthAggregation": "WorstOf"
+                        },
+                        "insights": []
+                      },
+                      {
+                        "name": "API-W",
+                        "description": "",
+                        "labels": {},
+                        "dependencies": [],
+                        "metrics": [],
+                        "healthSourceSettings": {
+                          "metricsHealthAggregation": "WorstOf",
+                          "dependencyHealthAggregation": "WorstOf"
+                        },
+                        "insights": []
+                      }
+                    ],
+                    "metrics": [],
+                    "healthSourceSettings": {
+                      "metricsHealthAggregation": "WorstOf",
+                      "dependencyHealthAggregation": "WorstOf"
+                    },
+                    "insights": []
+                  }
+                ],
+                "metrics": [],
+                "healthSourceSettings": {
+                  "metricsHealthAggregation": "WorstOf",
+                  "dependencyHealthAggregation": "WorstOf"
+                },
+                "insights": []
+              }
+            ],
+            "metrics": [
+              {
+                "measurement": "cpu",
+                "tags": {
+                  "host": "bacon_west"
+                },
+                "field": "usage_user",
+                "healthSettings": {
+                  "aggregation": "Mean",
+                  "timeRange": 1,
+                  "operator": "GreaterThan",
+                  "criticalThreshold": "75",
+                  "warningThreshold": "50",
+                  "noMetricData": "KeepState"
+                },
+                "name": ""
+              }
+            ],
+            "healthSourceSettings": {
+              "metricsHealthAggregation": "WorstOf",
+              "dependencyHealthAggregation": "WorstOf"
+            },
+            "insights": []
+          },
+          {
+            "name": "DNSLB",
+            "description": "",
+            "labels": {},
+            "dependencies": [],
+            "metrics": [],
+            "healthSourceSettings": {
+              "metricsHealthAggregation": "WorstOf",
+              "dependencyHealthAggregation": "WorstOf"
+            },
+            "insights": []
+          }
+        ],
+        "metrics": [],
+        "healthSourceSettings": {
+          "metricsHealthAggregation": "WorstOf",
+          "dependencyHealthAggregation": "BestOf"
+        },
+        "insights": []
+      }
+    }
+  ]
+}

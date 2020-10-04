@@ -1,0 +1,133 @@
+{
+    "title": "Bacon West Containers",
+    "description": "",
+    "category": "INS_CAT_OPERATIONS",
+    "severity": "INS_SEV_INFORMATIONAL",
+    "metrics": [
+        {
+            "measurement": "docker_container_cpu",
+            "tags": [
+                {
+                    "key": "container_name",
+                    "values": [
+                        "bacon_app_mongo_1"
+                    ]
+                },
+                {
+                    "key": "host",
+                    "values": [
+                        "bacon_west"
+                    ]
+                }
+            ],
+            "field": "usage_percent",
+            "function": "mean",
+            "metricName": "Mongo CPU"
+        },
+        {
+            "measurement": "docker_container_mem",
+            "tags": [
+                {
+                    "key": "container_name",
+                    "values": [
+                        "bacon_app_mongo_1"
+                    ]
+                },
+                {
+                    "key": "host",
+                    "values": [
+                        "bacon_west"
+                    ]
+                }
+            ],
+            "field": "usage_percent",
+            "function": "mean",
+            "metricName": "Mongo Mem"
+        },
+        {
+            "measurement": "docker_container_mem",
+            "tags": [
+                {
+                    "key": "container_name",
+                    "values": [
+                        "bacon_app_eapi_1"
+                    ]
+                },
+                {
+                    "key": "host",
+                    "values": [
+                        "bacon_west"
+                    ]
+                }
+            ],
+            "field": "usage_percent",
+            "function": "mean",
+            "metricName": "API Mem"
+        },
+        {
+            "measurement": "docker_container_cpu",
+            "tags": [
+                {
+                    "key": "container_name",
+                    "values": [
+                        "bacon_app_eapi_1"
+                    ]
+                },
+                {
+                    "key": "host",
+                    "values": [
+                        "bacon_west"
+                    ]
+                }
+            ],
+            "field": "usage_percent",
+            "function": "mean",
+            "metricName": "API CPU"
+        },
+        {
+            "measurement": "docker_container_mem",
+            "tags": [
+                {
+                    "key": "host",
+                    "values": [
+                        "bacon_west"
+                    ]
+                },
+                {
+                    "key": "container_name",
+                    "values": [
+                        "bacon_app_react_1"
+                    ]
+                }
+            ],
+            "field": "usage_percent",
+            "function": "mean",
+            "metricName": "Web Mem"
+        },
+        {
+            "measurement": "docker_container_cpu",
+            "tags": [
+                {
+                    "key": "container_name",
+                    "values": [
+                        "bacon_app_react_1"
+                    ]
+                },
+                {
+                    "key": "host",
+                    "values": [
+                        "bacon_west"
+                    ]
+                }
+            ],
+            "field": "usage_percent",
+            "function": "mean",
+            "metricName": "Web CPU"
+        }
+    ],
+    "visualizationType": "VISUALIZATION_TYPE_LINE",
+    "period": "1d",
+    "analysis": null,
+    "healthStatus": "NONE",
+    "healthStatusReason": ""
+}

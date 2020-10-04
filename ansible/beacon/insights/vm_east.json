@@ -1,0 +1,41 @@
+{
+    "title": "Bacon VM East",
+    "description": "",
+    "category": "INS_CAT_OPERATIONS",
+    "severity": "INS_SEV_INFORMATIONAL",
+    "metrics": [
+        {
+            "measurement": "cpu",
+            "tags": [
+                {
+                    "key": "host",
+                    "values": [
+                        "bacon_east"
+                    ]
+                }
+            ],
+            "field": "usage_system",
+            "function": "mean",
+            "metricName": "CPU"
+        },
+        {
+            "measurement": "mem",
+            "tags": [
+                {
+                    "key": "host",
+                    "values": [
+                        "bacon_east"
+                    ]
+                }
+            ],
+            "field": "used_percent",
+            "function": "mean",
+            "metricName": "Mem"
+        }
+    ],
+    "visualizationType": "VISUALIZATION_TYPE_LINE",
+    "period": "1d",
+    "analysis": null,
+    "healthStatus": "NONE",
+    "healthStatusReason": ""
+}
