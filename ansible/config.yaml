@@ -59,7 +59,7 @@
       community.general.docker_compose:
         project_src: /home/ubuntu/bacon_app
         # project_name: "{{ inventory_hostname }}"
-        build: yes
+        # build: yes
       register: output
       become: true
 
