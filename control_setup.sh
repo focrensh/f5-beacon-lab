@@ -10,9 +10,9 @@
 
 cd /home/ubuntu/
 rm -rf bacon_app/
-git clone https://github.com/focrensh/bacon_app
-cd bacon_app/ansible
 python3 -m venv .venv
 source ./.venv/bin/activate
+git clone https://github.com/focrensh/bacon_app
+cd bacon_app/ansible
 pip3 install -r requirements.txt
 ansible-playbook config.yaml
