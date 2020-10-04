@@ -103,6 +103,7 @@
         force: yes
       become: yes   
       loop: "{{ lookup('fileglob', 'templates/tg_plugins/*', wantlist=True) }}"
+      when: item is not search("beacon.conf") #prevent removal of ingest token on app updates
 
     - name: restart telegraf
       service:

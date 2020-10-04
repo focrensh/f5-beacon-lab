@@ -111,7 +111,7 @@
         dest: "/etc/telegraf/telegraf.d/{{ item.split('/')[-1] }}"
         force: yes
       become: yes   
-      loop: "{{ lookup('fileglob', 'templates/tg_plugins/*', wantlist=True) }}"
+      loop: "{{ lookup('fileglob', 'templates/tg_plugins/beacon.conf', wantlist=True) }}"
 
     - name: restart telegraf
       service:
