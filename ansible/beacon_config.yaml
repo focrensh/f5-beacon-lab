@@ -43,6 +43,9 @@
       register: createdToken
       delegate_to: localhost
 
+    - set_fact:
+        beacon_token: "{{ createdToken.json.accessToken }}"
+
     - name: Create Insights
       uri:
         url: "{{csAPI}}/beacon/v1/insights"
@@ -98,7 +101,7 @@
     - vars.yaml
 
   tasks:
-    
+
     - name: Set templatized Telegraf configuration
       template:
         src: "{{ item }}"

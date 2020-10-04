@@ -2,10 +2,10 @@
 
 ##### INSTALLATION
 ## Configured in /etc/rc.local
-## https://github.com/focrensh/bacon_app
-## chmod +x /home/f5student/update_git.sh
-## /home/f5student/update_git.sh > /home/f5student/update_git.log
-## chown -R f5student:f5student /home/f5student
+#curl -o /home/ubuntu/control_setup.sh https://raw.githubusercontent.com/focrensh/bacon_app/master/control_setup.sh
+#chmod +x /home/ubuntu/control_setup.sh
+#/home/ubuntu/control_setup.sh > /home/ubuntu/control_setup.log
+##chown -R f5student:f5student /home/f5student
 
 
 cd /home/ubuntu/
