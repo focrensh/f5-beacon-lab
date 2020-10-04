@@ -99,6 +99,9 @@
 
   vars_files:
     - vars.yaml
+  
+  vars:
+    - beacon_token: "{{ hostvars.localhost.beacon_token }}"
 
   tasks:
 
