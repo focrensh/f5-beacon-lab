@@ -39,7 +39,11 @@
                           "metricsHealthAggregation": "WorstOf",
                           "dependencyHealthAggregation": "WorstOf"
                         },
-                        "insights": []
+                        "insights": [
+                          {
+                            "name": "Bacon MongoDB East"
+                          }
+                        ]
                       },
                       {
                         "name": "FrontEnd-E",
@@ -106,10 +110,10 @@
             },
             "insights": [
               {
-                "name": "VM East"
+                "name": "Bacon VM East"
               },
               {
-                "name": "Containers East"
+                "name": "Bacon East Containers"
               }
             ]
           },
@@ -138,7 +142,11 @@
                           "metricsHealthAggregation": "WorstOf",
                           "dependencyHealthAggregation": "WorstOf"
                         },
-                        "insights": []
+                        "insights": [
+                          {
+                            "name": "Bacon MongoDB West"
+                          }
+                        ]
                       },
                       {
                         "name": "FrontEnd-W",
@@ -203,7 +211,14 @@
               "metricsHealthAggregation": "WorstOf",
               "dependencyHealthAggregation": "WorstOf"
             },
-            "insights": []
+            "insights": [
+              {
+                "name": "Bacon VM West"
+              },
+              {
+                "name": "Bacon West Containers"
+              }
+            ]
           },
           {
             "name": "DNSLB",
