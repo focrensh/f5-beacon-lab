@@ -38,7 +38,6 @@
           Content-Type: application/json
           Authorization: "Bearer {{ authtoken.json.access_token }}"
           X-F5aas-Preferred-Account-Id: "{{ beacon_acct }}"
-        body_format: json
       register: deleteToken
       delegate_to: localhost
 
@@ -93,6 +92,9 @@
       delegate_to: localhost
       loop: "{{ http_monitors }}"
 
+    - name: Wait 5 seconds for inflight data to settle
+      pause:
+        seconds: 5
 
     - name: Delete Sources
       uri:
@@ -114,6 +116,3 @@
           type: monitor
         - name: "Bacon West"
           type: monitor
-
-    - debug:
-        msg: "{{ deleteSources }}"
