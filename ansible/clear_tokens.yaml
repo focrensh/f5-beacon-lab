@@ -1,0 +1,23 @@
+# This is only inteded to be used while working on Blueprint Updates
+- name: Clear Tokens on East/West
+  hosts: bacon
+  gather_facts: false
+  
+  vars:
+    - beacon_token: "changeme"
+
+  tasks:
+
+    - name: Set templatized Telegraf configuration
+      template:
+        src: "{{ item }}"
+        dest: "/etc/telegraf/telegraf.d/{{ item.split('/')[-1] }}"
+        force: yes
+      become: yes   
+      loop: "{{ lookup('fileglob', 'templates/tg_plugins/beacon.conf', wantlist=True) }}"
+
+    - name: Stop Telegraf
+      service:
+        name: telegraf
+        state: stopped
+      become: yes
