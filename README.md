@@ -1,11 +1,19 @@
 # Bacon App for F5 Beacon
 
+## Sections
+1. Setup Lab
+1. Explore Beacon Portal and Lab Environment
+1. MTTI / MTTK use-cases (using Beacon)
+1. Configure, Update, and provision Beacon
+1. Automate deployments and updates
+
 ## Requirements
 * F5CS Account created and subscribed to Beacon
 * Access to UDF (future versions should contain AWS infra deploy as well)
 
 
-## Draft Steps
+
+## Draft Lab Setup
 1. UDF will deploy the infrastructure and app containers on boot.
 1. On the Control machine login to VSCODE under `Access Methods`
 
