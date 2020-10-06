@@ -6,13 +6,42 @@
                 ansible_host: 10.1.1.5
                 ansible_ssh_private_key_file: ~/.ssh/id_rsa
                 ansible_user: ubuntu
+                services:
+                    - react
+                    - eapi
+                    - mongo
+                    - mongo-express
+                    - locust
             bacon_west:
                 ansible_python_interpreter: /usr/bin/python3
                 ansible_host: 10.1.1.6
                 ansible_ssh_private_key_file: ~/.ssh/id_rsa
                 ansible_user: ubuntu
+                services:
+                    - react
+                    - eapi
+                    - mongo
+                    - mongo-express
+                    - locust
+                    - lb
+
+    bigips:
+        hosts:
+            bigip_east:
+                rpms:
+                    - https://github.com/F5Networks/f5-declarative-onboarding/releases/download/v1.15.0/f5-declarative-onboarding-1.15.0-3.noarch.rpm
+                    - https://github.com/F5Networks/f5-telemetry-streaming/releases/download/v1.14.0/f5-telemetry-1.14.0-2.noarch.rpm
+                    - https://github.com/F5Networks/f5-appsvcs-extension/releases/download/v3.22.1/f5-appsvcs-3.22.1-1.noarch.rpm
+                provider:
+                    server: 10.1.1.9
+                    server_port: 8443
+                    user: admin
+                    password: 3eaconlab
+                    validate_certs: false
+
     control:
         hosts:
             localhost:
                 ansible_python_interpreter: ../../.venv/bin/python
+                # ansible_python_interpreter: ./.venv/bin/python
         

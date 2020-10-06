@@ -2,3 +2,5 @@
 node_modules/
 certs/
 build/
+roles/
+tmp/

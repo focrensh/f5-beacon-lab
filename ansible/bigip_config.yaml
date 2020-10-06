@@ -1,0 +1,36 @@
+- name: Download and Install RPMs
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars:
+    provider: "{{ hostvars.bigip_east.provider }}"
+    beacon_token: "changeme"
+    declarations:
+      - name: Device
+        file: do
+      - name: Telemetry
+        file: ts
+      - name: AS3
+        file: as3
+
+  tasks:
+
+    - name: ATC Install and Update
+      include_role:
+        name: f5devcentral.f5app_services_package
+      vars:
+        f5app_services_package_url: "{{ item }}"
+        f5app_services_package_path: "./tmp/{{ item.split('/')[-1] }}"
+      loop: "{{ hostvars.bigip_east.rpms }}"
+
+    - name: ATC
+      include_role:
+        name: f5devcentral.atc_deploy
+      vars:
+        atc_method: POST
+        atc_service: "{{ item.name }}"
+        atc_declaration: "{{ lookup('file', 'bigip/' + item.file + '.json') }}"
+        atc_delay: 10
+        atc_retries: 30
+      loop: "{{ declarations }}"

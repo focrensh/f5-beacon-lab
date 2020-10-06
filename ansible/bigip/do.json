@@ -1,0 +1,33 @@
+{
+    "schemaVersion": "1.0.0",
+    "class": "Device",
+    "async": true,
+    "Common": {
+        "class": "Tenant",
+        "hostname": "bacon-bip.local",
+        "dbvars": {
+            "class": "DbVariables",
+            "ui.advisory.enabled": true,
+            "ui.advisory.color": "green",
+            "ui.advisory.text": "Bacon EAST BIG-IP",
+            "restjavad.useextramb": true,
+            "provision.extramb": "500"
+        },
+        "myProvisioning": {
+            "class": "Provision",
+            "ltm": "nominal",
+            "asm": "nominal",
+            "avr": "nominal"
+        },
+        "analytics": {
+            "class": "Analytics",
+            "interval": 60,
+            "offboxProtocol": "tcp",
+            "offboxTcpAddresses": [
+                "127.0.0.1"
+            ],
+            "offboxTcpPort": 6514,
+            "offboxEnabled": true
+        }
+    }
+}
