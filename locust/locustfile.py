@@ -5,12 +5,12 @@ class QuickstartUser(HttpUser):
 
     @task(5)
     def taskfrontend(self):
-        self.client.get("/")
+        self.client.get("/", verify=False)
 
     @task(3)
     def api(self):
-        self.client.get(":85/declare")
+        self.client.get(":85/declare", verify=False)
 
     @task(1)
     def bacon(self):
-        self.client.get(":85/bacon/3")
+        self.client.get(":85/bacon/3", verify=False)
