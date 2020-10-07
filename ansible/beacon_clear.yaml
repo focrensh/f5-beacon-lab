@@ -31,7 +31,7 @@
 
     - name: Delete Ingest Token
       uri:
-        url: "{{csAPI}}/beacon/v1/telemetry-token/bacon_token"
+        url: "{{csAPI}}/beacon/v1/telemetry-token/bacon_token?force=true"
         method: DELETE
         body_format: json
         headers:
@@ -116,3 +116,5 @@
           type: monitor
         - name: "Bacon West"
           type: monitor
+        - name: "bacon-bip.local"
+          type: bigip-system

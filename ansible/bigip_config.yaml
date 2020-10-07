@@ -16,6 +16,12 @@
 
   tasks:
 
+    - name: Wait for BIG-IP
+      bigip_wait:
+        timeout: 600
+        provider: "{{ provider }}"
+      delegate_to: localhost
+
     - name: ATC Install and Update
       include_role:
         name: f5devcentral.f5app_services_package
@@ -32,5 +38,5 @@
         atc_service: "{{ item.name }}"
         atc_declaration: "{{ lookup('file', 'bigip/' + item.file + '.json') }}"
         atc_delay: 10
-        atc_retries: 30
+        atc_retries: 45
       loop: "{{ declarations }}"

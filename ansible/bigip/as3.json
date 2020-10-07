@@ -163,6 +163,9 @@
                         "0.0.0.0"
                     ],
                     "pool": "api_pool",
+                    "profileAnalytics": {
+                        "use": "api_data"
+                    },
                     "serverTLS": "web_api"
                 },
                 "api_pool": {

@@ -101,7 +101,7 @@
     - vars.yaml
   
   vars:
-    - beacon_token: "{{ hostvars.localhost.beacon_token }}"
+    beacon_token: "{{ hostvars.localhost.beacon_token }}"
 
   tasks:
 
@@ -118,3 +118,31 @@
         name: telegraf
         state: restarted
       become: yes
+
+- name: Update TS Token
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars_files:
+    - vars.yaml
+
+  vars:
+    provider: "{{ hostvars.bigip_east.provider }}"
+    beacon_token: "{{ hostvars.localhost.beacon_token }}"
+
+  tasks:
+
+    - name: Wait for BIG-IP
+      bigip_wait:
+        timeout: 600
+        provider: "{{ provider }}"
+      delegate_to: localhost
+
+    - name: TS Update
+      include_role:
+        name: f5devcentral.atc_deploy
+      vars:
+        atc_method: POST
+        atc_service: Telemetry
+        atc_declaration: "{{ lookup('template', 'bigip/ts.json') }}"
