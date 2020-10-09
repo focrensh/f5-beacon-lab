@@ -1,0 +1,9 @@
+- name: Test1
+  hosts: bacon_east
+  gather_facts: false
+
+  tasks:
+
+    # Runs 2 CPU stress test against beacon_east vm
+    - name: Running Test1
+      command: "stress-ng --cpu 2 -t 5m"
