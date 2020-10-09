@@ -1,41 +1,37 @@
 {
-    "title": "Bacon VM West",
-    "description": "",
+    "title": "Bacon BIG-IP System",
     "category": "INS_CAT_OPERATIONS",
     "severity": "INS_SEV_INFORMATIONAL",
     "metrics": [
         {
-            "measurement": "cpu",
+            "measurement": "bigip-system",
             "tags": [
                 {
-                    "key": "host",
+                    "key": "source",
                     "values": [
-                        "bacon_west"
+                        "bacon-bip.local"
                     ]
                 }
             ],
-            "field": "usage_user",
+            "field": "systemCpuUsage",
             "function": "mean",
             "metricName": "CPU"
         },
         {
-            "measurement": "mem",
+            "measurement": "bigip-system",
             "tags": [
                 {
-                    "key": "host",
+                    "key": "source",
                     "values": [
-                        "bacon_west"
+                        "bacon-bip.local"
                     ]
                 }
             ],
-            "field": "used_percent",
+            "field": "tmmMemoryUsage",
             "function": "mean",
             "metricName": "Mem"
         }
     ],
     "visualizationType": "VISUALIZATION_TYPE_LINE",
-    "period": "1d",
-    "analysis": null,
-    "healthStatus": "NONE",
-    "healthStatusReason": ""
+    "period": "1d"
 }

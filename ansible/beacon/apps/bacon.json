@@ -75,7 +75,11 @@
                       "metricsHealthAggregation": "WorstOf",
                       "dependencyHealthAggregation": "WorstOf"
                     },
-                    "insights": []
+                    "insights": [
+                      {
+                        "name": "Bacon BIG-IP System"
+                      }
+                    ]
                   }
                 ],
                 "metrics": [],
@@ -236,7 +240,7 @@
         "metrics": [],
         "healthSourceSettings": {
           "metricsHealthAggregation": "WorstOf",
-          "dependencyHealthAggregation": "BestOf"
+          "dependencyHealthAggregation": "WorstOf"
         },
         "insights": []
       }

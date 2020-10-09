@@ -1,7 +1,7 @@
 # Bacon App for F5 Beacon
 
 ## Sections
-1. Lab Setup
+1. Lab Overview and Setup
 1. Explore Beacon Portal and Lab Environment
 1. MTTI / MTTK use-cases (using Beacon)
 1. Configure, Update, and provision Beacon
@@ -11,7 +11,11 @@
 * F5CS Account created and subscribed to Beacon
 * Access to UDF (future versions should contain AWS infra deploy as well)
 
-## Diagrams
+## Lab Environment Overview
+Application Setup 
+
+(diagram of app flow)
+
 Data ingestion flow for the Bacon application within this lab.
 
 <img src="docs/images/bacon_ingest.drawio.jpg" width="100%">

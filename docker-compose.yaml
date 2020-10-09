@@ -49,4 +49,4 @@ services:
     volumes:
       # - ./locust:/mnt/locust
       - ./locust/locustfile.py:/mnt/locust/locustfile.py
-    command: -f /mnt/locust/locustfile.py -H http://lb
+    command: -f /mnt/locust/locustfile.py -H https://
