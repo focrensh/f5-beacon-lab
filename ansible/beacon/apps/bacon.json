@@ -39,7 +39,24 @@
 														"description": "",
 														"labels": {},
 														"dependencies": [],
-														"metrics": [],
+														"metrics": [
+															{
+																"measurement": "nginx",
+																"tags": {
+																	"host": "bacon_east"
+																},
+																"field": "requests_diff",
+																"healthSettings": {
+																	"aggregation": "Mean",
+																	"timeRange": 1,
+																	"operator": "GreaterThan",
+																	"criticalThreshold": "200",
+																	"warningThreshold": "150",
+																	"noMetricData": "KeepState"
+																},
+																"name": "nginx req"
+															}
+														],
 														"healthSourceSettings": {
 															"metricsHealthAggregation": "WorstOf",
 															"dependencyHealthAggregation": "WorstOf"
@@ -116,7 +133,40 @@
 												"insights": []
 											}
 										],
-										"metrics": [],
+										"metrics": [
+											{
+												"measurement": "bigip-system",
+												"tags": {
+													"source": "bacon-bip.local"
+												},
+												"field": "systemCpuUsage",
+												"healthSettings": {
+													"aggregation": "Mean",
+													"timeRange": 1,
+													"operator": "GreaterThan",
+													"criticalThreshold": "70",
+													"warningThreshold": "25",
+													"noMetricData": "KeepState"
+												},
+												"name": "systemCpuUsage"
+											},
+											{
+												"measurement": "bigip-system",
+												"tags": {
+													"source": "bacon-bip.local"
+												},
+												"field": "tmmMemoryUsage",
+												"healthSettings": {
+													"aggregation": "Mean",
+													"timeRange": 1,
+													"operator": "GreaterThan",
+													"criticalThreshold": "70",
+													"warningThreshold": "55",
+													"noMetricData": "KeepState"
+												},
+												"name": "tmmMemoryUsage"
+											}
+										],
 										"healthSourceSettings": {
 											"metricsHealthAggregation": "WorstOf",
 											"dependencyHealthAggregation": "WorstOf"
@@ -140,7 +190,24 @@
 								"description": "",
 								"labels": {},
 								"dependencies": [],
-								"metrics": [],
+								"metrics": [
+									{
+										"measurement": "mongodb",
+										"tags": {
+											"host": "bacon_east"
+										},
+										"field": "connections_current",
+										"healthSettings": {
+											"aggregation": "Mean",
+											"timeRange": 1,
+											"operator": "GreaterThan",
+											"criticalThreshold": "20",
+											"warningThreshold": "15",
+											"noMetricData": "KeepState"
+										},
+										"name": "connections_current"
+									}
+								],
 								"healthSourceSettings": {
 									"metricsHealthAggregation": "WorstOf",
 									"dependencyHealthAggregation": "WorstOf"
@@ -203,7 +270,24 @@
 												"description": "",
 												"labels": {},
 												"dependencies": [],
-												"metrics": [],
+												"metrics": [
+													{
+														"measurement": "nginx",
+														"tags": {
+															"host": "bacon_west"
+														},
+														"field": "requests_diff",
+														"healthSettings": {
+															"aggregation": "Mean",
+															"timeRange": 1,
+															"operator": "GreaterThan",
+															"criticalThreshold": "200",
+															"warningThreshold": "150",
+															"noMetricData": "KeepState"
+														},
+														"name": "nginx req"
+													}
+												],
 												"healthSourceSettings": {
 													"metricsHealthAggregation": "WorstOf",
 													"dependencyHealthAggregation": "WorstOf"
@@ -225,10 +309,14 @@
 										],
 										"metrics": [],
 										"healthSourceSettings": {
-											"metricsHealthAggregation": "WorstOf",
-											"dependencyHealthAggregation": "WorstOf"
+											"dependencyHealthAggregation": "WorstOf",
+											"metricsHealthAggregation": "WorstOf"
 										},
-										"insights": []
+										"insights": [
+											{
+												"name": "Bacon NGINX Plus Requests"
+											}
+										]
 									}
 								],
 								"metrics": [],
@@ -279,10 +367,10 @@
 						},
 						"insights": [
 							{
-								"name": "Bacon West Containers"
+								"name": "Bacon VM West"
 							},
 							{
-								"name": "Bacon VM West"
+								"name": "Bacon West Containers"
 							}
 						]
 					},

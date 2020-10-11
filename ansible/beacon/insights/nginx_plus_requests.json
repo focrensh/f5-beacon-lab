@@ -1,0 +1,51 @@
+{
+    "title": "Bacon NGINX Plus Requests",
+    "description": "",
+    "category": "INS_CAT_OPERATIONS",
+    "severity": "INS_SEV_INFORMATIONAL",
+    "metrics": [
+        {
+            "measurement": "nginx_plus_api_http_server_zones",
+            "tags": [
+                {
+                    "key": "host",
+                    "values": [
+                        "bacon_west"
+                    ]
+                },
+                {
+                    "key": "zone",
+                    "values": [
+                        "frontend"
+                    ]
+                }
+            ],
+            "field": "requests_diff",
+            "function": "mean",
+            "metricName": "Web"
+        },
+        {
+            "measurement": "nginx_plus_api_http_server_zones",
+            "tags": [
+                {
+                    "key": "host",
+                    "values": [
+                        "bacon_west"
+                    ]
+                },
+                {
+                    "key": "zone",
+                    "values": [
+                        "api"
+                    ]
+                }
+            ],
+            "field": "requests_diff",
+            "function": "mean",
+            "metricName": "API"
+        }
+    ],
+    "visualizationType": "VISUALIZATION_TYPE_LINE",
+    "period": "1d",
+    "analysis": null
+}
