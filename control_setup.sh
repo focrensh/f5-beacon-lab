@@ -15,6 +15,7 @@ python3 -m venv .venv
 source ./.venv/bin/activate
 git clone https://github.com/focrensh/bacon_app
 cd bacon_app/ansible
+#git checkout devel
 pip3 install -r requirements.txt
 ansible-galaxy install f5devcentral.f5app_services_package -p ./roles/
 ansible-galaxy install f5devcentral.atc_deploy,v0.11.0 -p ./roles/ --force

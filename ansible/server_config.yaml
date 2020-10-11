@@ -37,7 +37,7 @@
     - name: Copy App Files Over
       synchronize:
         src: ../app
-        dest: /home/ubuntu/
+        dest: /home/ubuntu/bacon_app
         rsync_opts:
           - "--exclude=node_modules"
           - "--exclude=.venv"

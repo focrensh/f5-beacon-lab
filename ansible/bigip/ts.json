@@ -15,6 +15,13 @@
             "clientSslProfiles": true,
             "serverSslProfiles": true
           }
+        },
+        {
+          "setTag": {
+            "tenant": "`T`",
+            "application": "`A`"
+          },
+          "enable": true
         }
       ]
     },
