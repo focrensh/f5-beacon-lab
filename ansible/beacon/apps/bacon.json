@@ -201,16 +201,16 @@
 											"aggregation": "Mean",
 											"timeRange": 1,
 											"operator": "GreaterThan",
-											"criticalThreshold": "20",
-											"warningThreshold": "15",
+											"criticalThreshold": "25",
+											"warningThreshold": "20",
 											"noMetricData": "KeepState"
 										},
 										"name": "connections_current"
 									}
 								],
 								"healthSourceSettings": {
-									"metricsHealthAggregation": "WorstOf",
-									"dependencyHealthAggregation": "WorstOf"
+									"dependencyHealthAggregation": "WorstOf",
+									"metricsHealthAggregation": "WorstOf"
 								},
 								"insights": [
 									{
@@ -309,8 +309,8 @@
 										],
 										"metrics": [],
 										"healthSourceSettings": {
-											"dependencyHealthAggregation": "WorstOf",
-											"metricsHealthAggregation": "WorstOf"
+											"metricsHealthAggregation": "WorstOf",
+											"dependencyHealthAggregation": "WorstOf"
 										},
 										"insights": [
 											{
@@ -331,10 +331,27 @@
 								"description": "",
 								"labels": {},
 								"dependencies": [],
-								"metrics": [],
+								"metrics": [
+									{
+										"field": "connections_current",
+										"measurement": "mongodb",
+										"tags": {
+											"host": "bacon_west"
+										},
+										"name": "connections_current",
+										"healthSettings": {
+											"aggregation": "Mean",
+											"timeRange": 1,
+											"operator": "GreaterThan",
+											"criticalThreshold": "25",
+											"warningThreshold": "20",
+											"noMetricData": "KeepState"
+										}
+									}
+								],
 								"healthSourceSettings": {
-									"metricsHealthAggregation": "WorstOf",
-									"dependencyHealthAggregation": "WorstOf"
+									"dependencyHealthAggregation": "WorstOf",
+									"metricsHealthAggregation": "WorstOf"
 								},
 								"insights": [
 									{
