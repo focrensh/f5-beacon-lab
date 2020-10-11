@@ -58,7 +58,7 @@
     - name: Create and start services
       community.general.docker_compose:
         project_src: /home/ubuntu/bacon_app/app
-        # project_name: "{{ inventory_hostname }}"
+        project_name: bacon_app
         # build: yes
         restarted: yes
         services: "{{ services }}"
