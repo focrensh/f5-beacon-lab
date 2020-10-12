@@ -12,6 +12,7 @@
                     - mongo
                     - mongo-express
                     - locust
+                lb_url: https://10.1.1.9
             bacon_west:
                 ansible_python_interpreter: /usr/bin/python3
                 ansible_host: 10.1.1.6
@@ -24,6 +25,7 @@
                     - mongo-express
                     - locust
                     - lb
+                lb_url: https://lb
 
     bigips:
         hosts:

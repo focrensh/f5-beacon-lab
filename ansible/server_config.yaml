@@ -65,7 +65,6 @@
       register: output
       become: true
 
-
     # INSTALL and SETUP TELEGRAF
     - name: Import InfluxData GPG signing key [Debian/Ubuntu]
       apt_key:

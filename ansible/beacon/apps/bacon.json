@@ -209,12 +209,37 @@
 									}
 								],
 								"healthSourceSettings": {
+									"metricsHealthAggregation": "WorstOf",
+									"dependencyHealthAggregation": "WorstOf"
+								},
+								"insights": [
+									{
+										"name": "Bacon MongoDB East"
+									}
+								]
+							},
+							{
+								"name": "Beacon Monitor-E",
+								"description": "",
+								"labels": {},
+								"dependencies": [],
+								"metrics": [
+									{
+										"field": "healthStatus",
+										"measurement": "monitor",
+										"tags": {
+											"source": "Bacon East"
+										},
+										"name": "healthStatus"
+									}
+								],
+								"healthSourceSettings": {
 									"dependencyHealthAggregation": "WorstOf",
 									"metricsHealthAggregation": "WorstOf"
 								},
 								"insights": [
 									{
-										"name": "Bacon MongoDB East"
+										"name": "Bacon East Monitor"
 									}
 								]
 							}
@@ -235,6 +260,22 @@
 									"noMetricData": "KeepState"
 								},
 								"name": "usage_user"
+							},
+							{
+								"measurement": "monitor",
+								"tags": {
+									"source": "Bacon East"
+								},
+								"field": "healthStatus",
+								"healthSettings": {
+									"aggregation": "",
+									"timeRange": 1,
+									"operator": "",
+									"criticalThreshold": "",
+									"warningThreshold": "",
+									"noMetricData": "KeepState"
+								},
+								"name": "healthStatus"
 							}
 						],
 						"healthSourceSettings": {
@@ -333,12 +374,11 @@
 								"dependencies": [],
 								"metrics": [
 									{
-										"field": "connections_current",
 										"measurement": "mongodb",
 										"tags": {
 											"host": "bacon_west"
 										},
-										"name": "connections_current",
+										"field": "connections_current",
 										"healthSettings": {
 											"aggregation": "Mean",
 											"timeRange": 1,
@@ -346,7 +386,33 @@
 											"criticalThreshold": "25",
 											"warningThreshold": "20",
 											"noMetricData": "KeepState"
-										}
+										},
+										"name": "connections_current"
+									}
+								],
+								"healthSourceSettings": {
+									"metricsHealthAggregation": "WorstOf",
+									"dependencyHealthAggregation": "WorstOf"
+								},
+								"insights": [
+									{
+										"name": "Bacon MongoDB West"
+									}
+								]
+							},
+							{
+								"name": "Beacon Monitor-W",
+								"description": "",
+								"labels": {},
+								"dependencies": [],
+								"metrics": [
+									{
+										"field": "healthStatus",
+										"measurement": "monitor",
+										"tags": {
+											"source": "Bacon West"
+										},
+										"name": "healthStatus"
 									}
 								],
 								"healthSourceSettings": {
@@ -355,7 +421,7 @@
 								},
 								"insights": [
 									{
-										"name": "Bacon MongoDB West"
+										"name": "Bacon West Monitor"
 									}
 								]
 							}
@@ -376,6 +442,22 @@
 									"noMetricData": "KeepState"
 								},
 								"name": "usage_user"
+							},
+							{
+								"measurement": "monitor",
+								"tags": {
+									"source": "Bacon West"
+								},
+								"field": "healthStatus",
+								"healthSettings": {
+									"aggregation": "",
+									"timeRange": 1,
+									"operator": "",
+									"criticalThreshold": "",
+									"warningThreshold": "",
+									"noMetricData": "KeepState"
+								},
+								"name": "healthStatus"
 							}
 						],
 						"healthSourceSettings": {
