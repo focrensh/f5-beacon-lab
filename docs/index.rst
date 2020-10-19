@@ -12,9 +12,11 @@ Modules
 #. Configure, Update, and provision Beacon
 #. Automate deployments and updates
 
+
+
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 1
+   :glob:
 
    lab_setup
 

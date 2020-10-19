@@ -13,6 +13,7 @@ import {
   DropdownItem,
   NavbarText
 } from 'reactstrap';
+import logo from '../images/beacon.png'
 
 const Navi = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -50,7 +51,7 @@ const Navi = (props) => {
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
-          <NavbarText>Simple Text</NavbarText>
+          <NavbarText><img src={logo} style={{width: 45}}  alt="logo" /></NavbarText>
         </Collapse>
       </Navbar>
     </div>
