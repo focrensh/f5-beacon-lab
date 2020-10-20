@@ -34,6 +34,10 @@
         executable: pip3
       become: true
 
+    - name: Enable Ubuntu to manage docker
+      shell: usermod -aG docker ubuntu
+      become: yes
+
     - name: Copy App Files Over
       synchronize:
         src: ../app
