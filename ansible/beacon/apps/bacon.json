@@ -99,10 +99,28 @@
 														"description": "",
 														"labels": {},
 														"dependencies": [],
-														"metrics": [],
+														"metrics": [
+															{
+																"field": "usage_percent",
+																"measurement": "docker_container_cpu",
+																"tags": {
+																	"container_name": "bacon_app_eapi_1",
+																	"host": "bacon_east"
+																},
+																"name": "cpu",
+																"healthSettings": {
+																	"aggregation": "Mean",
+																	"timeRange": 1,
+																	"operator": "GreaterThan",
+																	"criticalThreshold": "25",
+																	"warningThreshold": "10",
+																	"noMetricData": "KeepState"
+																}
+															}
+														],
 														"healthSourceSettings": {
-															"metricsHealthAggregation": "WorstOf",
-															"dependencyHealthAggregation": "WorstOf"
+															"dependencyHealthAggregation": "WorstOf",
+															"metricsHealthAggregation": "WorstOf"
 														},
 														"insights": []
 													}
@@ -225,17 +243,25 @@
 								"dependencies": [],
 								"metrics": [
 									{
-										"field": "healthStatus",
 										"measurement": "monitor",
 										"tags": {
 											"source": "Bacon East"
+										},
+										"field": "healthStatus",
+										"healthSettings": {
+											"aggregation": "",
+											"timeRange": 1,
+											"operator": "",
+											"criticalThreshold": "",
+											"warningThreshold": "",
+											"noMetricData": "KeepState"
 										},
 										"name": "healthStatus"
 									}
 								],
 								"healthSourceSettings": {
-									"dependencyHealthAggregation": "WorstOf",
-									"metricsHealthAggregation": "WorstOf"
+									"metricsHealthAggregation": "WorstOf",
+									"dependencyHealthAggregation": "WorstOf"
 								},
 								"insights": [
 									{
@@ -284,10 +310,10 @@
 						},
 						"insights": [
 							{
-								"name": "Bacon East Containers"
+								"name": "Bacon VM East"
 							},
 							{
-								"name": "Bacon VM East"
+								"name": "Bacon East Containers"
 							}
 						]
 					},
@@ -340,7 +366,25 @@
 												"description": "",
 												"labels": {},
 												"dependencies": [],
-												"metrics": [],
+												"metrics": [
+													{
+														"field": "usage_percent",
+														"measurement": "docker_container_cpu",
+														"tags": {
+															"container_name": "bacon_app_eapi_1",
+															"host": "bacon_west"
+														},
+														"name": "cpu",
+														"healthSettings": {
+															"aggregation": "Mean",
+															"timeRange": 1,
+															"operator": "GreaterThan",
+															"criticalThreshold": "25",
+															"warningThreshold": "10",
+															"noMetricData": "KeepState"
+														}
+													}
+												],
 												"healthSourceSettings": {
 													"metricsHealthAggregation": "WorstOf",
 													"dependencyHealthAggregation": "WorstOf"
@@ -407,17 +451,25 @@
 								"dependencies": [],
 								"metrics": [
 									{
-										"field": "healthStatus",
 										"measurement": "monitor",
 										"tags": {
 											"source": "Bacon West"
+										},
+										"field": "healthStatus",
+										"healthSettings": {
+											"aggregation": "",
+											"timeRange": 1,
+											"operator": "",
+											"criticalThreshold": "",
+											"warningThreshold": "",
+											"noMetricData": "KeepState"
 										},
 										"name": "healthStatus"
 									}
 								],
 								"healthSourceSettings": {
-									"dependencyHealthAggregation": "WorstOf",
-									"metricsHealthAggregation": "WorstOf"
+									"metricsHealthAggregation": "WorstOf",
+									"dependencyHealthAggregation": "WorstOf"
 								},
 								"insights": [
 									{
@@ -474,14 +526,14 @@
 						]
 					},
 					{
-						"name": "DNSLB",
+						"name": "DNS",
 						"description": "",
 						"labels": {},
 						"dependencies": [],
 						"metrics": [],
 						"healthSourceSettings": {
-							"metricsHealthAggregation": "WorstOf",
-							"dependencyHealthAggregation": "WorstOf"
+							"dependencyHealthAggregation": "WorstOf",
+							"metricsHealthAggregation": "WorstOf"
 						},
 						"insights": []
 					}

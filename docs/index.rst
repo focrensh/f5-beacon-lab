@@ -19,6 +19,7 @@ Modules
    :glob:
 
    lab_setup
+   overview
 
 .. |beacon| image:: images/beacon.png
     :scale: 30 %

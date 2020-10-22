@@ -10,7 +10,7 @@ Steps
 
    |control_vscode|
 
-#. If you do not see a terminal located at the bottom of the screen, press `ctrl + ~` to make it appear.
+#. If you do not see a terminal located at the bottom of the screen, press **ctrl + `** to make it appear.
 
    |terminal|
 
@@ -27,13 +27,13 @@ Steps
    |vars_tree|
 
 
-#. Obtain the EAST and WEST URLs dynamically generated for your environment. 
+#. Each of the 2 "regions" that the application was deployed into will have a public facing URL to access it. Obtain the EAST and WEST URLs that were dynamically generated for your environment as below:
 
-   * The EAST region is running through BIG-IP. Select the  **Access** dropdown of the **BIG-IP East** server and select `EAST URL Frontend`. Place that in the appropriate section within the vars file. Example below:
+   * The EAST region is running through BIG-IP. Select the  **Access** dropdown of the **BIG-IP East** server within UDF and select `EAST URL Frontend`. Place the URL that is opened within  within the `vars.yaml` file mentioend above. Example below:
 
    |east_url|
 
-   * The WEST region is running through NGINX Plus on the server itself. Select the  **Access** dropdown of the **West** server and select `WEST URL Frontend`. Place that in the appropriate section within the vars file. Example below:
+   * The WEST region is running through NGINX Plus on the server itself. Select the  **Access** dropdown of the **West** server and select `WEST URL Frontend`.  Place the URL that is opened within  within the `vars.yaml` file mentioend above. Example below:
 
    |west_url|
 
@@ -51,13 +51,13 @@ Steps
 
 #. Run the ``beacon_config.yaml`` playbook to configure your Beacon account and update the infrastructure with a token to send Telemetry metrics to Beacon. Below is a summary of what will be created:
 
-   * Create Ingest Token in F5 Beacon
-   * Add the Ingest Token to Telemetry Streaming on BIG-IP
-   * Update EAST/WEST telegraf data collectors with the Ingest Token to send data to your account
+   * F5 Beacon Data Ingest Token
+   * Add the Ingest Token to **Telemetry Streaming** on BIG-IP
+   * Update the EAST/WEST telegraf data collectors with the Ingest Token to send metrics to F5 Beacon
    * Model the **Bacon** application in F5 Beacon
    * Create Insights
-   * Create Beacon Monitors
-   * Create Metric Health Conditions
+   * Create Beacon Synthetic Monitors
+   * Create Metric Health Conditions on components
 
 
    Run the following Command:
