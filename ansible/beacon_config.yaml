@@ -29,9 +29,9 @@
             url: "https://{{udfenv.json | json_query(\"deployment.components[?name=='West'].accessMethods.https[] | [?label=='West URL Frontend'].host\") | first}}"
         dns_monitors:
           - name: "Bacon East DNS"
-            url: "{{udfenv.json | json_query(\"deployment.components[?name=='BIG-IP'].accessMethods.https[] | [?label=='East URL Frontend'].host\") | first}}"
+            domain: "{{udfenv.json | json_query(\"deployment.components[?name=='BIG-IP'].accessMethods.https[] | [?label=='East URL Frontend'].host\") | first}}"
           - name: "Bacon West DNS"
-            url: "{{udfenv.json | json_query(\"deployment.components[?name=='West'].accessMethods.https[] | [?label=='West URL Frontend'].host\") | first}}"
+            domain: "{{udfenv.json | json_query(\"deployment.components[?name=='West'].accessMethods.https[] | [?label=='West URL Frontend'].host\") | first}}"
 
 
     - name: Get Beacon Auth

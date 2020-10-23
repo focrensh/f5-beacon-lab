@@ -1,0 +1,50 @@
+{
+    "title": "Bacon BIG-IP APIVS",
+    "description": "",
+    "category": "INS_CAT_OPERATIONS",
+    "severity": "INS_SEV_INFORMATIONAL",
+    "metrics": [
+        {
+            "measurement": "bigip-virtual",
+            "tags": [
+                {
+                    "key": "source",
+                    "values": [
+                        "bacon-bip.local"
+                    ]
+                },
+                {
+                    "key": "name",
+                    "values": [
+                        "/FrontEnd/API/serviceMain"
+                    ]
+                }
+            ],
+            "field": "ApplicationResponseTime",
+            "function": "mean",
+            "metricName": "API ms"
+        },
+        {
+            "measurement": "bigip-virtual",
+            "tags": [
+                {
+                    "key": "source",
+                    "values": [
+                        "bacon-bip.local"
+                    ]
+                },
+                {
+                    "key": "name",
+                    "values": [
+                        "/FrontEnd/API/serviceMain"
+                    ]
+                }
+            ],
+            "field": "tot_requests",
+            "function": "mean",
+            "metricName": "API Req"
+        }
+    ],
+    "visualizationType": "VISUALIZATION_TYPE_LINE",
+    "period": "1d"
+}

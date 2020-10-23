@@ -101,13 +101,12 @@
 														"dependencies": [],
 														"metrics": [
 															{
-																"field": "usage_percent",
 																"measurement": "docker_container_cpu",
 																"tags": {
 																	"container_name": "bacon_app_eapi_1",
 																	"host": "bacon_east"
 																},
-																"name": "cpu",
+																"field": "usage_percent",
 																"healthSettings": {
 																	"aggregation": "Mean",
 																	"timeRange": 1,
@@ -115,12 +114,13 @@
 																	"criticalThreshold": "25",
 																	"warningThreshold": "10",
 																	"noMetricData": "KeepState"
-																}
+																},
+																"name": "cpu"
 															}
 														],
 														"healthSourceSettings": {
-															"dependencyHealthAggregation": "WorstOf",
-															"metricsHealthAggregation": "WorstOf"
+															"metricsHealthAggregation": "WorstOf",
+															"dependencyHealthAggregation": "WorstOf"
 														},
 														"insights": []
 													}
@@ -310,10 +310,10 @@
 						},
 						"insights": [
 							{
-								"name": "Bacon VM East"
+								"name": "Bacon East Containers"
 							},
 							{
-								"name": "Bacon East Containers"
+								"name": "Bacon VM East"
 							}
 						]
 					},
@@ -368,13 +368,12 @@
 												"dependencies": [],
 												"metrics": [
 													{
-														"field": "usage_percent",
 														"measurement": "docker_container_cpu",
 														"tags": {
 															"container_name": "bacon_app_eapi_1",
 															"host": "bacon_west"
 														},
-														"name": "cpu",
+														"field": "usage_percent",
 														"healthSettings": {
 															"aggregation": "Mean",
 															"timeRange": 1,
@@ -382,7 +381,8 @@
 															"criticalThreshold": "25",
 															"warningThreshold": "10",
 															"noMetricData": "KeepState"
-														}
+														},
+														"name": "cpu"
 													}
 												],
 												"healthSourceSettings": {
@@ -530,12 +530,49 @@
 						"description": "",
 						"labels": {},
 						"dependencies": [],
-						"metrics": [],
+						"metrics": [
+							{
+								"measurement": "dns-monitor",
+								"tags": {
+									"source": "Bacon East DNS"
+								},
+								"field": "healthStatus",
+								"healthSettings": {
+									"aggregation": "",
+									"timeRange": 1,
+									"operator": "",
+									"criticalThreshold": "",
+									"warningThreshold": "",
+									"noMetricData": "KeepState"
+								},
+								"name": "East DNS Health"
+							},
+							{
+								"measurement": "dns-monitor",
+								"tags": {
+									"source": "Bacon West DNS"
+								},
+								"field": "healthStatus",
+								"healthSettings": {
+									"aggregation": "",
+									"timeRange": 1,
+									"operator": "",
+									"criticalThreshold": "",
+									"warningThreshold": "",
+									"noMetricData": "KeepState"
+								},
+								"name": "West DNS Health"
+							}
+						],
 						"healthSourceSettings": {
-							"dependencyHealthAggregation": "WorstOf",
-							"metricsHealthAggregation": "WorstOf"
+							"metricsHealthAggregation": "WorstOf",
+							"dependencyHealthAggregation": "WorstOf"
 						},
-						"insights": []
+						"insights": [
+							{
+								"name": "Bacon DNS Monitors"
+							}
+						]
 					}
 				],
 				"metrics": [],

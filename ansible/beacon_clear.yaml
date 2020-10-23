@@ -89,6 +89,8 @@
       loop:
         - "Bacon East"
         - "Bacon West"
+        - "Bacon East DNS"
+        - "Bacon West DNS"
 
     - name: Wait 5 seconds for inflight data to settle
       pause:
@@ -113,6 +115,10 @@
         - name: "Bacon East"
           type: monitor
         - name: "Bacon West"
+          type: monitor
+        - name: "Bacon East DNS"
+          type: monitor
+        - name: "Bacon West DNS"
           type: monitor
         - name: "bacon-bip.local"
           type: bigip-system

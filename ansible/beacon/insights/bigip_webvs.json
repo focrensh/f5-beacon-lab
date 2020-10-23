@@ -1,5 +1,5 @@
 {
-    "title": "Bacon BIG-IP App Response Time",
+    "title": "Bacon BIG-IP WebVS",
     "description": "",
     "category": "INS_CAT_OPERATIONS",
     "severity": "INS_SEV_INFORMATIONAL",
@@ -22,32 +22,29 @@
             ],
             "field": "ApplicationResponseTime",
             "function": "mean",
-            "metricName": "Web"
+            "metricName": "Web ms"
         },
         {
             "measurement": "bigip-virtual",
             "tags": [
                 {
+                    "key": "name",
+                    "values": [
+                        "/FrontEnd/WEB/serviceMain"
+                    ]
+                },
+                {
                     "key": "source",
                     "values": [
                         "bacon-bip.local"
                     ]
-                },
-                {
-                    "key": "name",
-                    "values": [
-                        "/FrontEnd/API/serviceMain"
-                    ]
                 }
             ],
-            "field": "ApplicationResponseTime",
+            "field": "tot_requests",
             "function": "mean",
-            "metricName": "API"
+            "metricName": "Web Req"
         }
     ],
     "visualizationType": "VISUALIZATION_TYPE_LINE",
-    "period": "1d",
-    "analysis": null,
-    "healthStatus": "NONE",
-    "healthStatusReason": ""
+    "period": "1d"
 }
