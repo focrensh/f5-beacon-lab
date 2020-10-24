@@ -84,10 +84,14 @@
 													}
 												],
 												"healthSourceSettings": {
-													"metricsHealthAggregation": "WorstOf",
-													"dependencyHealthAggregation": "WorstOf"
+													"dependencyHealthAggregation": "WorstOf",
+													"metricsHealthAggregation": "WorstOf"
 												},
-												"insights": []
+												"insights": [
+													{
+														"name": "Bacon BIG-IP WebVS"
+													}
+												]
 											},
 											{
 												"name": "API-VS-E",
@@ -145,10 +149,14 @@
 													}
 												],
 												"healthSourceSettings": {
-													"metricsHealthAggregation": "WorstOf",
-													"dependencyHealthAggregation": "WorstOf"
+													"dependencyHealthAggregation": "WorstOf",
+													"metricsHealthAggregation": "WorstOf"
 												},
-												"insights": []
+												"insights": [
+													{
+														"name": "Bacon BIG-IP APIVS"
+													}
+												]
 											}
 										],
 										"metrics": [
@@ -186,8 +194,8 @@
 											}
 										],
 										"healthSourceSettings": {
-											"metricsHealthAggregation": "WorstOf",
-											"dependencyHealthAggregation": "WorstOf"
+											"dependencyHealthAggregation": "WorstOf",
+											"metricsHealthAggregation": "WorstOf"
 										},
 										"insights": [
 											{
