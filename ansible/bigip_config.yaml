@@ -1,4 +1,4 @@
-- name: Download and Install RPMs
+- name: Install and Configure ATC
   hosts: localhost
   connection: local
   gather_facts: false
