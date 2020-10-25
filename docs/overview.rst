@@ -58,7 +58,7 @@ Application Landscape
    |
    While you are in the default `Read Only` mode, selecting a component on the Application Map will show details about that component including Health, Associated Insights, and Metric-Health-Conditions.
 
-#. Aa an example, select the **MongoDB-E** component to see the detail view slide out.
+#. As an example, select the **MongoDB-E** component to see the detail view slide out.
 
    |mongo_e|
    
@@ -163,7 +163,10 @@ Insights
 Dashboards
 ----------
 
-TODO
+#. Dashboards allow you to combine multiple insights and applications into a single view. Creation of a dashboard will be covered in the **Configure & Ingest** portion of this lab.
+
+Now that we have had a brief introduction to the various sections and features within Beacon, please proceed to the **Demo Scenarios** or **Configure Beacon & Ingest Data** portions of this lab.
+
 
 .. |app_landscape| image:: images/overview/app_landscape.png
    :scale: 70 %  
