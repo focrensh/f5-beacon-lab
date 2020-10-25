@@ -69,6 +69,16 @@
       register: output
       become: true
 
+    - name: Add IP address of all hosts to all hosts
+      lineinfile:
+        dest: /etc/hosts
+        line: "127.0.0.1 {{ item }}"
+        state: present
+      become: true
+      loop:
+        - react
+        - eapi
+
     # INSTALL and SETUP TELEGRAF
     - name: Import InfluxData GPG signing key [Debian/Ubuntu]
       apt_key:
