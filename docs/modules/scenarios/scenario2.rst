@@ -1,7 +1,8 @@
-Scenario 1: BIG-IP Virtual Down
+Scenario 2: BIG-IP Virtual Down
 ===============================
 
 In this scenario, we will run an ansible playbook which will mark the WEB-VS down.
+
 Steps
 -----
 

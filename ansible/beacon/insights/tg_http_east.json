@@ -1,0 +1,90 @@
+{
+    "title": "Bacon Telegraf HTTP Monitor East",
+    "description": "",
+    "category": "INS_CAT_OPERATIONS",
+    "severity": "INS_SEV_INFORMATIONAL",
+    "metrics": [
+        {
+            "measurement": "http_response",
+            "tags": [
+                {
+                    "key": "host",
+                    "values": [
+                        "bacon_east"
+                    ]
+                },
+                {
+                    "key": "server",
+                    "values": [
+                        "http://react:8080"
+                    ]
+                }
+            ],
+            "field": "response_time",
+            "function": "mean",
+            "metricName": "Web respTime"
+        },
+        {
+            "measurement": "http_response",
+            "tags": [
+                {
+                    "key": "host",
+                    "values": [
+                        "bacon_east"
+                    ]
+                },
+                {
+                    "key": "server",
+                    "values": [
+                        "http://eapi:3000/declare"
+                    ]
+                }
+            ],
+            "field": "response_time",
+            "function": "mean",
+            "metricName": "API respTime"
+        },
+        {
+            "measurement": "http_response",
+            "tags": [
+                {
+                    "key": "host",
+                    "values": [
+                        "bacon_east"
+                    ]
+                },
+                {
+                    "key": "server",
+                    "values": [
+                        "http://react:8080"
+                    ]
+                }
+            ],
+            "field": "http_response_code",
+            "function": "mean",
+            "metricName": "Web respCode"
+        },
+        {
+            "measurement": "http_response",
+            "tags": [
+                {
+                    "key": "host",
+                    "values": [
+                        "bacon_east"
+                    ]
+                },
+                {
+                    "key": "server",
+                    "values": [
+                        "http://eapi:3000/declare"
+                    ]
+                }
+            ],
+            "field": "http_response_code",
+            "function": "mean",
+            "metricName": "http_response_code"
+        }
+    ],
+    "visualizationType": "VISUALIZATION_TYPE_LINE",
+    "period": "1d"
+}
