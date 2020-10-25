@@ -84,8 +84,8 @@
 													}
 												],
 												"healthSourceSettings": {
-													"dependencyHealthAggregation": "WorstOf",
-													"metricsHealthAggregation": "WorstOf"
+													"metricsHealthAggregation": "WorstOf",
+													"dependencyHealthAggregation": "WorstOf"
 												},
 												"insights": [
 													{
@@ -149,8 +149,8 @@
 													}
 												],
 												"healthSourceSettings": {
-													"dependencyHealthAggregation": "WorstOf",
-													"metricsHealthAggregation": "WorstOf"
+													"metricsHealthAggregation": "WorstOf",
+													"dependencyHealthAggregation": "WorstOf"
 												},
 												"insights": [
 													{
@@ -194,8 +194,8 @@
 											}
 										],
 										"healthSourceSettings": {
-											"dependencyHealthAggregation": "WorstOf",
-											"metricsHealthAggregation": "WorstOf"
+											"metricsHealthAggregation": "WorstOf",
+											"dependencyHealthAggregation": "WorstOf"
 										},
 										"insights": [
 											{
@@ -294,27 +294,11 @@
 									"noMetricData": "KeepState"
 								},
 								"name": "usage_user"
-							},
-							{
-								"measurement": "monitor",
-								"tags": {
-									"source": "Bacon East"
-								},
-								"field": "healthStatus",
-								"healthSettings": {
-									"aggregation": "",
-									"timeRange": 1,
-									"operator": "",
-									"criticalThreshold": "",
-									"warningThreshold": "",
-									"noMetricData": "KeepState"
-								},
-								"name": "healthStatus"
 							}
 						],
 						"healthSourceSettings": {
-							"metricsHealthAggregation": "WorstOf",
-							"dependencyHealthAggregation": "WorstOf"
+							"dependencyHealthAggregation": "WorstOf",
+							"metricsHealthAggregation": "WorstOf"
 						},
 						"insights": [
 							{
@@ -502,34 +486,18 @@
 									"noMetricData": "KeepState"
 								},
 								"name": "usage_user"
-							},
-							{
-								"measurement": "monitor",
-								"tags": {
-									"source": "Bacon West"
-								},
-								"field": "healthStatus",
-								"healthSettings": {
-									"aggregation": "",
-									"timeRange": 1,
-									"operator": "",
-									"criticalThreshold": "",
-									"warningThreshold": "",
-									"noMetricData": "KeepState"
-								},
-								"name": "healthStatus"
 							}
 						],
 						"healthSourceSettings": {
-							"metricsHealthAggregation": "WorstOf",
-							"dependencyHealthAggregation": "WorstOf"
+							"dependencyHealthAggregation": "WorstOf",
+							"metricsHealthAggregation": "WorstOf"
 						},
 						"insights": [
 							{
-								"name": "Bacon VM West"
+								"name": "Bacon West Containers"
 							},
 							{
-								"name": "Bacon West Containers"
+								"name": "Bacon VM West"
 							}
 						]
 					},

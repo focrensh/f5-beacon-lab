@@ -22,25 +22,6 @@ Steps
       export BEACON_PW='password'
       export BEACON_ACCT='acctid' (add notes how to get this)
 
-#. Update ``./bacon_app/ansible/vars.yaml`` to include the HTTP endpoints of your East and West application. Navigate using the folder tree on the left hand side and select the **vars.yaml** file to open it.
-
-   |vars_tree|
-
-
-#. Each of the 2 "regions" that the application was deployed into will have a public facing URL to access it. Obtain the EAST and WEST URLs that were dynamically generated for your environment as below:
-
-   * The EAST region is running through BIG-IP. Select the  **Access** dropdown of the **BIG-IP East** server within UDF and select `EAST URL Frontend`. Place the URL that is opened within  within the `vars.yaml` file mentioend above. Example below:
-
-   |east_url|
-
-   * The WEST region is running through NGINX Plus on the server itself. Select the  **Access** dropdown of the **West** server and select `WEST URL Frontend`.  Place the URL that is opened within  within the `vars.yaml` file mentioend above. Example below:
-
-   |west_url|
-
-   * Update the var file with the values for those URLs:
-
-   |vars_update|
-
 #. Activate the python virtual environment installed by the UDF setup scripts:
 
    ``source /home/ubuntu/.venv/bin/activate``

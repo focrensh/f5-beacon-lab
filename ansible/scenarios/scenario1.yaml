@@ -1,4 +1,4 @@
-- name: Test1
+- name: High CPU
   hosts: bacon_east
   gather_facts: false
 
