@@ -1,0 +1,20 @@
+- name: Flip bad BIG-IP Monitor
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars:
+    provider: "{{ hostvars.bigip_east.provider }}"
+    monitor: https
+
+  tasks:
+
+    - name: ATC
+      include_role:
+        name: f5devcentral.atc_deploy
+      vars:
+        atc_method: POST
+        atc_service: "AS3"
+        atc_declaration: "{{ lookup('template', 'bigip/as3.json') }}"
+        atc_delay: 10
+        atc_retries: 45

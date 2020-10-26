@@ -16,7 +16,7 @@
 				"dependencies": [
 					{
 						"name": "East",
-						"description": "",
+						"description": "logical region",
 						"labels": {},
 						"dependencies": [
 							{
@@ -55,6 +55,23 @@
 																	"noMetricData": "KeepState"
 																},
 																"name": "requests"
+															},
+															{
+																"measurement": "http_response",
+																"tags": {
+																	"host": "bacon_east",
+																	"server": "http://react:8080"
+																},
+																"field": "http_response_code",
+																"healthSettings": {
+																	"aggregation": "Max",
+																	"timeRange": 1,
+																	"operator": "GreaterThanOrEqual",
+																	"criticalThreshold": "300",
+																	"warningThreshold": "",
+																	"noMetricData": "KeepState"
+																},
+																"name": "http_response_code"
 															}
 														],
 														"healthSourceSettings": {
@@ -120,6 +137,23 @@
 																	"noMetricData": "KeepState"
 																},
 																"name": "cpu"
+															},
+															{
+																"measurement": "http_response",
+																"tags": {
+																	"host": "bacon_east",
+																	"server": "http://eapi:3000/declare"
+																},
+																"field": "http_response_code",
+																"healthSettings": {
+																	"aggregation": "Max",
+																	"timeRange": 1,
+																	"operator": "GreaterThanOrEqual",
+																	"criticalThreshold": "300",
+																	"warningThreshold": "",
+																	"noMetricData": "KeepState"
+																},
+																"name": "http_response_code"
 															}
 														],
 														"healthSourceSettings": {
@@ -317,14 +351,14 @@
 						],
 						"metrics": [],
 						"healthSourceSettings": {
-							"metricsHealthAggregation": "WorstOf",
-							"dependencyHealthAggregation": "WorstOf"
+							"dependencyHealthAggregation": "WorstOf",
+							"metricsHealthAggregation": "WorstOf"
 						},
 						"insights": []
 					},
 					{
 						"name": "West",
-						"description": "",
+						"description": "logical region",
 						"labels": {},
 						"dependencies": [
 							{
@@ -358,6 +392,23 @@
 															"noMetricData": "KeepState"
 														},
 														"name": "requests"
+													},
+													{
+														"measurement": "http_response",
+														"tags": {
+															"host": "bacon_west",
+															"server": "http://react:8080"
+														},
+														"field": "http_response_code",
+														"healthSettings": {
+															"aggregation": "Mean",
+															"timeRange": 1,
+															"operator": "GreaterThanOrEqual",
+															"criticalThreshold": "300",
+															"warningThreshold": "",
+															"noMetricData": "KeepState"
+														},
+														"name": "http_response_code"
 													}
 												],
 												"healthSourceSettings": {
@@ -388,6 +439,23 @@
 															"noMetricData": "KeepState"
 														},
 														"name": "cpu"
+													},
+													{
+														"measurement": "http_response",
+														"tags": {
+															"host": "bacon_west",
+															"server": "http://eapi:3000/declare"
+														},
+														"field": "http_response_code",
+														"healthSettings": {
+															"aggregation": "Mean",
+															"timeRange": 1,
+															"operator": "GreaterThanOrEqual",
+															"criticalThreshold": "300",
+															"warningThreshold": "",
+															"noMetricData": "KeepState"
+														},
+														"name": "http_response_code"
 													}
 												],
 												"healthSourceSettings": {
@@ -397,10 +465,45 @@
 												"insights": []
 											}
 										],
-										"metrics": [],
+										"metrics": [
+											{
+												"field": "usage_percent",
+												"measurement": "docker_container_mem",
+												"tags": {
+													"host": "bacon_west",
+													"container_name": "bacon_app_lb_1"
+												},
+												"name": "Mem Percent",
+												"healthSettings": {
+													"aggregation": "Mean",
+													"timeRange": 1,
+													"operator": "GreaterThan",
+													"criticalThreshold": "25",
+													"warningThreshold": "10",
+													"noMetricData": "KeepState"
+												}
+											},
+											{
+												"field": "usage_percent",
+												"measurement": "docker_container_cpu",
+												"tags": {
+													"host": "bacon_west",
+													"container_name": "bacon_app_lb_1"
+												},
+												"name": "CPU Percent",
+												"healthSettings": {
+													"aggregation": "Mean",
+													"timeRange": 1,
+													"operator": "GreaterThan",
+													"criticalThreshold": "25",
+													"warningThreshold": "10",
+													"noMetricData": "KeepState"
+												}
+											}
+										],
 										"healthSourceSettings": {
-											"metricsHealthAggregation": "WorstOf",
-											"dependencyHealthAggregation": "WorstOf"
+											"dependencyHealthAggregation": "WorstOf",
+											"metricsHealthAggregation": "WorstOf"
 										},
 										"insights": [
 											{
@@ -522,8 +625,8 @@
 						],
 						"metrics": [],
 						"healthSourceSettings": {
-							"metricsHealthAggregation": "WorstOf",
-							"dependencyHealthAggregation": "WorstOf"
+							"dependencyHealthAggregation": "WorstOf",
+							"metricsHealthAggregation": "WorstOf"
 						},
 						"insights": []
 					},

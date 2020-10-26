@@ -48,13 +48,13 @@ As an application owner I can now focus my attention on a team to investigate th
 
 
 
-.. |health_in_nav| image:: images/health_in_nav.png
+.. |health_in_nav| image:: images/scen1/health_in_nav.png
     :scale: 80 %
-.. |health_cpu_over_75| image:: images/health_cpu_over_75.png
+.. |health_cpu_over_75| image:: images/scen1/health_cpu_over_75.png
     :scale: 80 %
-.. |metric_over75| image:: images/metric_over75.png
+.. |metric_over75| image:: images/scen1/metric_over75.png
     :width: 49 %
-.. |insight_over75| image:: images/insight_over75.png
+.. |insight_over75| image:: images/scen1/insight_over75.png
     :width: 49 %
-.. |hae| image:: images/hae.png
+.. |hae| image:: images/scen1/hae.png
     :scale: 75 %

@@ -108,7 +108,7 @@
                 "web_pool": {
                     "class": "Pool",
                     "monitors": [
-                        "http"
+                        "{{ monitor }}"
                     ],
                     "members": [
                         {

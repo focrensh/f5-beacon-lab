@@ -5,5 +5,5 @@
   tasks:
 
     # Runs 2 CPU stress test against beacon_east vm
-    - name: Running Test1
+    - name: Increase CPU for 5 min
       command: "stress-ng --cpu 2 -t 5m"

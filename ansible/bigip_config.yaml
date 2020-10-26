@@ -6,6 +6,7 @@
   vars:
     provider: "{{ hostvars.bigip_east.provider }}"
     beacon_token: "changeme"
+    monitor: http
     declarations:
       - name: Device
         file: do
@@ -36,7 +37,7 @@
       vars:
         atc_method: POST
         atc_service: "{{ item.name }}"
-        atc_declaration: "{{ lookup('file', 'bigip/' + item.file + '.json') }}"
+        atc_declaration: "{{ lookup('template', 'bigip/' + item.file + '.json') }}"
         atc_delay: 10
         atc_retries: 45
       loop: "{{ declarations }}"
