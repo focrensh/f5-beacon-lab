@@ -1,5 +1,5 @@
-LAB Setup
-=========
+Lab Overview and Setup
+======================
 
 .. NOTE:: UDF will deploy the infrastructure and app containers on boot. Follow the steps below to connect the lab to your F5 Beacon account.
 

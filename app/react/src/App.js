@@ -5,6 +5,7 @@ import { Alert } from 'reactstrap'
 import Navi from './components/Navi'
 import About from './components/About'
 import Configure from './components/Configure'
+import Home from './components/Home'
 import { Progress, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
@@ -21,8 +22,11 @@ function App() {
       </header>
       <Router>
         <body>
-          <Route path="/about" component={About} />
-          <Route path="/configure" component={Configure} />
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/configure" component={Configure} />
+          </Switch>
         </body>
       </Router>
         {/* <div className="text-center">

@@ -6,20 +6,21 @@ Deploy and explore an example application (**The Bacon App**) within F5 Beacon. 
 Sections
 --------
 
-#. Lab Overview and Setup
-#. Explore Beacon Portal and Lab Environment
-#. MTTI / MTTK use-cases (using Beacon)
-#. Configure, Update, and provision Beacon
-#. Automate deployments and updates
+#. :doc:`lab_setup`
+#. :doc:`overview`
+#. :doc:`modules/scenarios` (MTTI / MTTK examples)
+#. :doc:`modules/configure_ingest` (TBD)
+#. Automate deployments and updates (TBD)
 
 
 Diagrams
 --------
 
 * App Diagram (placeholder)
-* Ingest Diagram (placeholder)
+|bacon_ingest|
 
 .. toctree::
+   :hidden:
    :maxdepth: 1
    :glob:
 
@@ -30,6 +31,8 @@ Diagrams
 
 .. |beacon| image:: images/beacon.png
     :scale: 30 %
+.. |bacon_ingest| image:: images/bacon_ingest.drawio.jpg
+    :width: 100 %
 
 .. |signup| raw:: html
 

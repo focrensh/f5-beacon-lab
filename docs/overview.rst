@@ -1,5 +1,5 @@
-F5 Beacon Overview
-==================
+F5 Beacon & App Overview
+========================
 
 In this section we will review the different concepts and pages within the Beacon portal. You will notice many of the objects created during the `lab setup` portion of this lab.
 
