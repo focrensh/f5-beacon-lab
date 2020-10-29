@@ -1,0 +1,21 @@
+- name: Set West API to Bad
+  hosts: bacon_west
+  gather_facts: false
+
+  # To set the state back use:
+  # ansible-playbook scenarios/new.yaml -e "state=yummy"
+
+  vars:
+    state: bad
+
+  tasks:
+
+    - name: Make Bacon API return Bad
+      uri:
+        url: "http://localhost:3000/apiset"
+        method: POST
+        body_format: json
+        body:
+          bacon: "{{ state }}"
+        status_code: 200
+      register: apichange

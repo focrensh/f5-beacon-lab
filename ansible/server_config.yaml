@@ -63,7 +63,7 @@
       community.general.docker_compose:
         project_src: /home/ubuntu/bacon_app/app
         project_name: bacon_app
-        # build: yes
+        build: yes
         restarted: yes
         services: "{{ services }}"
       register: output

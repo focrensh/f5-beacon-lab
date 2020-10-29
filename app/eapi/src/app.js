@@ -20,14 +20,19 @@ app.use(function(req, res, next) {
     const vh = await VarHolder()
     console.log(vh)
 
-    try {
-        // return res.json(js)
-        console.log(req.headers)
-        return res.json({'bacon': vh, 'reqHeaders':req.headers})
-    } catch (e) {
-        console.log(e)
-        res.status(500).json( { status: 'Failed' })
+    if (vh === 'fail') {
+        res.status(500).json( { status: 'Failed Scenario' })
+    } else {
+        try {
+            // return res.json(js)
+            console.log(req.headers)
+            return res.json({'bacon': vh, 'reqHeaders':req.headers})
+        } catch (e) {
+            console.log(e)
+            res.status(500).json( { status: 'Failed' })
+        }
     }
+
     
 })
 
@@ -80,14 +85,8 @@ app.post('/declare', async (req, res) => {
 app.get('/declare', async (req, res) => {
 
     try {
-        // const decl = getDeclare()
-        if (!decl) {
-            var js = JSON.parse(`{"bacon": "yummy"}`);
-            return res.json(js)
-            return res.status(204).json()
-        }
-        console.log(decl)
-        res.json(decl)
+        var js = JSON.parse(`{"bacon": "yummy"}`);
+        return res.json(js)
     } catch (e) {
         console.log(e)
         res.status(500).json( { status: 'Failed' })
