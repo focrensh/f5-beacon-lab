@@ -1,14 +1,12 @@
 const express = require('express')
 const {startJobs, clearJobs, getDeclare} = require('./render')
 const {Bacon, getBacon} = require('./mongo')
+const {VarHolder} = require('./varholder')
 const app = express()
 const port = process.env.PORT || 3000
 
 
 app.use(express.json())
-
-
-
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*")
@@ -17,12 +15,56 @@ app.use(function(req, res, next) {
   })
 
 
+  app.get('/apicheck', async (req, res) => {
+
+    const vh = await VarHolder()
+    console.log(vh)
+
+    try {
+        // return res.json(js)
+        console.log(req.headers)
+        return res.json({'bacon': vh, 'reqHeaders':req.headers})
+    } catch (e) {
+        console.log(e)
+        res.status(500).json( { status: 'Failed' })
+    }
+    
+})
+
+app.post('/apicheck', async (req, res) => {
+
+    const bd = req.body
+    try {
+        return res.json(bd)
+    } catch (e) {
+        console.log(e)
+        res.status(500).json( { status: 'Failed' })
+    }
+    
+})
+
+
+app.post('/apiset', async (req, res) => {
+
+    const bacon = req.body.bacon
+    console.log(bacon)
+    const vh = await VarHolder(bacon)
+    
+    try {
+        return res.json(req.body)
+    } catch (e) {
+        console.log(e)
+        res.status(500).json( { status: 'Failed' })
+    }
+    
+})
+
 app.post('/declare', async (req, res) => {
 
     const declaration = req.body
-    const start = clearJobs()
+    // const start = clearJobs()
     try {
-        const start = startJobs(declaration)
+        // const start = startJobs(declaration)
         console.log('Started')
         res.json({ status: 'Started'})
     } catch (e) {
@@ -32,39 +74,15 @@ app.post('/declare', async (req, res) => {
     
 })
 
+
+
+
 app.get('/declare', async (req, res) => {
 
     try {
-        const decl = getDeclare()
+        // const decl = getDeclare()
         if (!decl) {
-            var js = JSON.parse(`{
-                "token": "",
-                "mock": true,
-                "inputs": [
-                    {
-                        "type": "bigipSystem",
-                        "source": "A_bigip1",
-                        "cpu": 75
-                    },
-                    {
-                        "type": "bigipSystem",
-                        "source": "A_bigip2",
-                        "cpu": 65
-                    },
-                    {
-                        "type": "tgSystem",
-                        "host": "A_Server1",
-                        "cpu": 59,
-                        "memory": 40
-                    },
-                    {
-                        "type": "bigipVirtual",
-                        "source": "A_bigip1",
-                        "name": "/Common/demovs1",
-                        "health": 2
-                    }
-                ]
-            }`);
+            var js = JSON.parse(`{"bacon": "yummy"}`);
             return res.json(js)
             return res.status(204).json()
         }
