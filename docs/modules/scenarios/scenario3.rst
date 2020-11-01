@@ -1,7 +1,7 @@
 Scenario 3: Beacon Monitor Response String
 ==========================================
 
-In the last scenario, we had a situation where the BIG-IP VirtualServer was offline which then caused the Beacon synthetic monitor to fail. In this scenario, we will create a situation where the Beacon synthetic monitor fails due to an expected response string not being found. Beacon monitors allows for you to specify an expected response string which must be returned by the endpoint in order for the monitor to be considered Healthy. This scenario will cover how this monitor failure will be represented within our application.
+In the last scenario, the BIG-IP VirtualServer was offline which then caused the Beacon synthetic monitor to fail. In this scenario, we will create a situation where the Beacon synthetic monitor fails due to an expected response string not being found. Beacon monitors allows for you to specify an expected response string which must be returned by the endpoint in order for the monitor to be considered Healthy. This scenario will cover how this monitor failure will be represented within our application.
 
 Steps
 -----

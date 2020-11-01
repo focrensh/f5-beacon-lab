@@ -15,6 +15,6 @@
       vars:
         atc_method: POST
         atc_service: "AS3"
-        atc_declaration: "{{ lookup('template', 'bigip/as3.json') }}"
+        atc_declaration: "{{ lookup('template', '../bigip/as3.json') }}"
         atc_delay: 10
         atc_retries: 45

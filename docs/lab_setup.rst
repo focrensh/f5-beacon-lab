@@ -6,6 +6,8 @@ Lab Overview and Setup
 Steps
 -----
 
+#. Open your browser tab for the UDF deployment that you have running.
+
 #. On the Control machine login to VSCODE under `Access Methods` using password "3eaconlab"
 
    |control_vscode|

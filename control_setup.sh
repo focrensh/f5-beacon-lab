@@ -11,7 +11,7 @@ if test -f "$develfile"; then
 fi
 
 apt update
-apt install docker.io python3-pip python3-venv rpm -y
+apt install docker.io python3-pip python3-venv rpm jq -y
 
 cd /home/ubuntu/
 rm -rf bacon_app/

@@ -9,7 +9,7 @@ class QuickstartUser(HttpUser):
 
     @task(3)
     def api(self):
-        self.client.get(":85/declare", verify=False)
+        self.client.get(":85/apicheck", verify=False)
 
     @task(1)
     def bacon(self):

@@ -1,0 +1,18 @@
+- name: Increase DB traffic
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars:
+    west_host: "http://{{ hostvars.bacon_west.ansible_host }}:3000"
+
+  tasks:
+
+    - name: Container to Increase traffic
+      community.general.docker_container:
+        name: locust
+        recreate: yes
+        image: locustio/locust
+        command: "-f /mnt/locust/locustfile.py --headless -u 14 -r 10 -t 8m -H {{ west_host }}"
+        volumes:
+          - ./s6/locustfile.py:/mnt/locust/locustfile.py

@@ -142,7 +142,7 @@
 																"measurement": "http_response",
 																"tags": {
 																	"host": "bacon_east",
-																	"server": "http://eapi:3000/declare"
+																	"server": "http://eapi:3000/apicheck"
 																},
 																"field": "http_response_code",
 																"healthSettings": {
@@ -351,8 +351,8 @@
 						],
 						"metrics": [],
 						"healthSourceSettings": {
-							"dependencyHealthAggregation": "WorstOf",
-							"metricsHealthAggregation": "WorstOf"
+							"metricsHealthAggregation": "WorstOf",
+							"dependencyHealthAggregation": "WorstOf"
 						},
 						"insights": []
 					},
@@ -444,7 +444,7 @@
 														"measurement": "http_response",
 														"tags": {
 															"host": "bacon_west",
-															"server": "http://eapi:3000/declare"
+															"server": "http://eapi:3000/apicheck"
 														},
 														"field": "http_response_code",
 														"healthSettings": {
@@ -467,13 +467,12 @@
 										],
 										"metrics": [
 											{
-												"field": "usage_percent",
 												"measurement": "docker_container_mem",
 												"tags": {
-													"host": "bacon_west",
-													"container_name": "bacon_app_lb_1"
+													"container_name": "bacon_app_lb_1",
+													"host": "bacon_west"
 												},
-												"name": "Mem Percent",
+												"field": "usage_percent",
 												"healthSettings": {
 													"aggregation": "Mean",
 													"timeRange": 1,
@@ -481,16 +480,16 @@
 													"criticalThreshold": "25",
 													"warningThreshold": "10",
 													"noMetricData": "KeepState"
-												}
+												},
+												"name": "Mem Percent"
 											},
 											{
-												"field": "usage_percent",
 												"measurement": "docker_container_cpu",
 												"tags": {
-													"host": "bacon_west",
-													"container_name": "bacon_app_lb_1"
+													"container_name": "bacon_app_lb_1",
+													"host": "bacon_west"
 												},
-												"name": "CPU Percent",
+												"field": "usage_percent",
 												"healthSettings": {
 													"aggregation": "Mean",
 													"timeRange": 1,
@@ -498,12 +497,13 @@
 													"criticalThreshold": "25",
 													"warningThreshold": "10",
 													"noMetricData": "KeepState"
-												}
+												},
+												"name": "CPU Percent"
 											}
 										],
 										"healthSourceSettings": {
-											"dependencyHealthAggregation": "WorstOf",
-											"metricsHealthAggregation": "WorstOf"
+											"metricsHealthAggregation": "WorstOf",
+											"dependencyHealthAggregation": "WorstOf"
 										},
 										"insights": [
 											{
@@ -578,6 +578,22 @@
 													"noMetricData": "KeepState"
 												},
 												"name": "connections_current"
+											},
+											{
+												"measurement": "mongodb",
+												"tags": {
+													"host": "bacon_west"
+												},
+												"field": "document_returned",
+												"healthSettings": {
+													"aggregation": "Difference",
+													"timeRange": 1,
+													"operator": "GreaterThan",
+													"criticalThreshold": "1000",
+													"warningThreshold": "500",
+													"noMetricData": "KeepState"
+												},
+												"name": "document_returned"
 											}
 										],
 										"healthSourceSettings": {
@@ -625,8 +641,8 @@
 						],
 						"metrics": [],
 						"healthSourceSettings": {
-							"dependencyHealthAggregation": "WorstOf",
-							"metricsHealthAggregation": "WorstOf"
+							"metricsHealthAggregation": "WorstOf",
+							"dependencyHealthAggregation": "WorstOf"
 						},
 						"insights": []
 					},

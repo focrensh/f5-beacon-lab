@@ -14,8 +14,7 @@ app.use(function(req, res, next) {
     next()
   })
 
-
-  app.get('/apicheck', async (req, res) => {
+app.get('/', async (req, res) => {
 
     const vh = await VarHolder()
     console.log(vh)
@@ -32,8 +31,25 @@ app.use(function(req, res, next) {
             res.status(500).json( { status: 'Failed' })
         }
     }
+})
 
-    
+app.get('/apicheck', async (req, res) => {
+
+    const vh = await VarHolder()
+    console.log(vh)
+
+    if (vh === 'fail') {
+        res.status(500).json( { status: 'Failed Scenario' })
+    } else {
+        try {
+            // return res.json(js)
+            console.log(req.headers)
+            return res.json({'bacon': vh, 'reqHeaders':req.headers})
+        } catch (e) {
+            console.log(e)
+            res.status(500).json( { status: 'Failed' })
+        }
+    }
 })
 
 app.post('/apicheck', async (req, res) => {
@@ -57,36 +73,6 @@ app.post('/apiset', async (req, res) => {
     
     try {
         return res.json(req.body)
-    } catch (e) {
-        console.log(e)
-        res.status(500).json( { status: 'Failed' })
-    }
-    
-})
-
-app.post('/declare', async (req, res) => {
-
-    const declaration = req.body
-    // const start = clearJobs()
-    try {
-        // const start = startJobs(declaration)
-        console.log('Started')
-        res.json({ status: 'Started'})
-    } catch (e) {
-        console.log(e)
-        res.status(500).json( { status: 'Failed' })
-    }
-    
-})
-
-
-
-
-app.get('/declare', async (req, res) => {
-
-    try {
-        var js = JSON.parse(`{"bacon": "yummy"}`);
-        return res.json(js)
     } catch (e) {
         console.log(e)
         res.status(500).json( { status: 'Failed' })
@@ -120,18 +106,47 @@ app.get('/bacon/:n', async (req, res) => {
     
 })
 
-app.post('/stop', async (req, res) => {
+
+// app.post('/declare', async (req, res) => {
+
+//     const declaration = req.body
+//     // const start = clearJobs()
+//     try {
+//         // const start = startJobs(declaration)
+//         console.log('Started')
+//         res.json({ status: 'Started'})
+//     } catch (e) {
+//         console.log(e)
+//         res.status(500).json( { status: 'Failed' })
+//     }
+    
+// })
+
+
+// app.get('/declare', async (req, res) => {
+
+//     try {
+//         var js = JSON.parse(`{"bacon": "yummy"}`);
+//         return res.json(js)
+//     } catch (e) {
+//         console.log(e)
+//         res.status(500).json( { status: 'Failed' })
+//     }
+    
+// })
+
+// app.post('/stop', async (req, res) => {
 
     
-    try {
-        const start = clearJobs()
-        console.log('Stopped')
-        res.json({ status: 'Stopped'})
-    } catch (e) {
-        console.log(e)
-    }
+//     try {
+//         const start = clearJobs()
+//         console.log('Stopped')
+//         res.json({ status: 'Stopped'})
+//     } catch (e) {
+//         console.log(e)
+//     }
     
-})
+// })
 
 
 app.listen(port, () => {
