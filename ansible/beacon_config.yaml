@@ -149,18 +149,6 @@
         state: restarted
       become: yes
 
-    - name: Start Locust
-      uri:
-        url: "http://localhost:8089/swarm"
-        method: POST
-        body_format: form-urlencoded
-        body:
-          user_count: 10
-          hatch_rate: 10
-          host: "{{ lb_url }}"
-        status_code: 200
-      register: locuststart
-
 - name: Update TS Token
   hosts: localhost
   connection: local

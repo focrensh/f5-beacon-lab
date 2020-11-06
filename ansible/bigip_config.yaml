@@ -10,8 +10,8 @@
     declarations:
       - name: Device
         file: do
-      - name: Telemetry
-        file: ts
+      # - name: Telemetry
+      #   file: ts
       - name: AS3
         file: as3
 
