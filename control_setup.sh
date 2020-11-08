@@ -32,28 +32,35 @@ ansible-playbook bigip_config.yaml
 
 
 # ### VSCODE
-# systemctl stop code-server@ubuntu
-# curl -fsSL https://code-server.dev/install.sh | sh
-# mkdir -p /home/ubuntu/.config/code-server
-# cat > /home/ubuntu/.config/code-server/config.yaml << EOF
-# bind-addr: 0.0.0.0:8080
-# auth: password
-# password: 3eaconlab
-# cert: false
-# EOF
+systemctl stop code-server@ubuntu
+curl -fsSL https://code-server.dev/install.sh | sh
+mkdir -p /home/ubuntu/.config/code-server
+cat > /home/ubuntu/.config/code-server/config.yaml << EOF
+bind-addr: 0.0.0.0:8080
+auth: password
+password: 3eaconlab
+cert: false
+EOF
 
-# mkdir -p /home/ubuntu/.local/share/code-server/User
-# cat > /home/ubuntu/.local/share/code-server/User/settings.json << EOF
-# {
-#     "workbench.colorTheme": "Visual Studio Dark",
-#     "terminal.integrated.shell.linux": "/bin/bash"
-# }
-# EOF
+mkdir -p /home/ubuntu/.local/share/code-server/User
+cat > /home/ubuntu/.local/share/code-server/User/settings.json << EOF
+{
+    "workbench.colorTheme": "Visual Studio Dark",
+    "terminal.integrated.shell.linux": "/bin/bash"
+}
+EOF
+
+cat > /home/ubuntu/.local/share/code-server/settings.json << EOF
+{
+    "workbench.colorTheme": "Visual Studio Dark",
+    "terminal.integrated.shell.linux": "/bin/bash"
+}
+EOF
 
 chown -R $user:$user $home
-# systemctl enable --now code-server@ubuntu
-# sleep 15
-# echo "Ready"
+systemctl enable --now code-server@ubuntu
+sleep 15
+echo "Ready"
 
 
 

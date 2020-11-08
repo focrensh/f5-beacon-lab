@@ -36,7 +36,7 @@
                 {
                     "key": "server",
                     "values": [
-                        "http://eapi:3000/declare"
+                        "http://eapi:3000/apicheck"
                     ]
                 }
             ],
@@ -76,7 +76,7 @@
                 {
                     "key": "server",
                     "values": [
-                        "http://eapi:3000/declare"
+                        "http://eapi:3000/apicheck"
                     ]
                 }
             ],

@@ -39,5 +39,5 @@
         atc_service: "{{ item.name }}"
         atc_declaration: "{{ lookup('template', 'bigip/' + item.file + '.json') }}"
         atc_delay: 10
-        atc_retries: 45
+        atc_retries: 72
       loop: "{{ declarations }}"
