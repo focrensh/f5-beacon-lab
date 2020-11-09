@@ -1,5 +1,7 @@
 #!/bin/bash
 
+date
+
 user="ubuntu"
 home="/home/$user"
 currentuser=$(whoami)
@@ -71,6 +73,7 @@ ansible-playbook bigip_config.yaml
 
 sleep 15
 echo "Ready"
+date
 
 
 
