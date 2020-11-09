@@ -14,7 +14,7 @@
         dest: "/etc/telegraf/telegraf.d/{{ item.split('/')[-1] }}"
         force: yes
       become: yes   
-      loop: "{{ lookup('fileglob', 'templates/tg_plugins/beacon.conf', wantlist=True) }}"
+      loop: "{{ lookup('fileglob', '../templates/tg_plugins/beacon.conf', wantlist=True) }}"
 
     - name: Stop Telegraf
       service:
@@ -22,6 +22,15 @@
         state: stopped
       become: yes
 
+    - name: Clear log file
+      shell: truncate -s 0 /var/log/telegraf/telegraf.log
+      become: yes
+
+    - name: Remove NGINX certs folder
+      file:
+        path: /home/ubuntu/bacon_app/app/nginx-plus-nap/certs
+        state: absent
+      become: yes
 
 - name: Clear TS Token
   hosts: localhost
@@ -47,3 +56,10 @@
         atc_method: POST
         atc_service: Telemetry
         atc_declaration: "{{ lookup('template', '../bigip/ts.json') }}"
+
+    - name: Remove file (delete file)
+      file:
+        path: "{{ item }}"
+        state: absent
+      become: yes
+      loop: "{{ lookup('fileglob', '/home/ubuntu/certs/nginx*', wantlist=True) }}"
