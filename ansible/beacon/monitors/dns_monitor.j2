@@ -1,0 +1,25 @@
+{
+    "action": "deploy",
+    "declaration": [
+        {
+            "metadata": {
+                "Version": "v1",
+                "Operation": ""
+            },
+            "dnsMonitor": {
+                "name": "{{ item.name }}",
+                "description": "",
+                "interval": 30,
+                "domain": "{{ item.domain }}",
+                "recordType": "A",
+                "protocol": "UDP",
+                "nameServers": [
+                    "8.8.8.8",
+                    "8.8.4.4"
+                ],
+                "onFailureTo": "ANY",
+                "onFailureCount": 1
+            }
+        }
+    ]
+}

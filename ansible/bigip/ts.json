@@ -13,8 +13,27 @@
             "virtualServers": true,
             "httpProfiles": true,
             "clientSslProfiles": true,
-            "serverSslProfiles": true
+            "serverSslProfiles": true,
+            "pools": true,
+            "aWideIps": true,
+            "aaaaWideIps": true,
+            "cnameWideIps": true,
+            "mxWideIps": true,
+            "naptrWideIps": true,
+            "aPools": true,
+            "aaaaPools": true,
+            "cnamePools": true,
+            "mxPools": true,
+            "naptrPools": true,
+            "srvPools": true
           }
+        },
+        {
+          "setTag": {
+            "tenant": "`T`",
+            "application": "`A`"
+          },
+          "enable": true
         }
       ]
     },

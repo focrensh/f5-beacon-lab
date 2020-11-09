@@ -1,6 +1,12 @@
+# App/Ansible Ignores
 .venv/
 node_modules/
 certs/
 build/
 roles/
 *.rpm
+
+# Doc ignores
+Pip*
+docs/_build/
+.DS_Store

@@ -7,15 +7,32 @@
     csAPI: "https://api.cloudservices.f5.com"
     ingestAPI: "https://ingestion.ovr.prd.f5aas.com:50443"
 
-  vars_files:
-    - vars.yaml
-
   tasks:
 
     - set_fact:
         beacon_un: "{{ lookup('env', 'BEACON_UN') }}"
         beacon_pw: "{{ lookup('env', 'BEACON_PW') }}"
         beacon_acct: "{{ lookup('env', 'BEACON_ACCT') }}"
+
+    - name: Get UDF metadata
+      uri:
+        url: "http://metadata.udf/deployment"
+        method: GET
+      register: udfenv
+      delegate_to: localhost
+
+    - set_fact:
+        http_monitors:
+          - name: "Bacon East"
+            url: "https://{{udfenv.json | json_query(\"deployment.components[?name=='BIG-IP'].accessMethods.https[] | [?label=='East URL Frontend'].host\") | first}}"
+          - name: "Bacon West"
+            url: "https://{{udfenv.json | json_query(\"deployment.components[?name=='West'].accessMethods.https[] | [?label=='West URL Frontend'].host\") | first}}"
+        dns_monitors:
+          - name: "Bacon East DNS"
+            domain: "{{udfenv.json | json_query(\"deployment.components[?name=='BIG-IP'].accessMethods.https[] | [?label=='East URL Frontend'].host\") | first}}"
+          - name: "Bacon West DNS"
+            domain: "{{udfenv.json | json_query(\"deployment.components[?name=='West'].accessMethods.https[] | [?label=='West URL Frontend'].host\") | first}}"
+
 
     - name: Get Beacon Auth
       uri:
@@ -92,13 +109,26 @@
       delegate_to: localhost
       loop: "{{ http_monitors }}"
 
+    # Does not currently validate app was created through ASYNC
+    - name: Create DNS Monitors
+      uri:
+        url: "{{csAPI}}/beacon/v1/declare"
+        method: POST
+        body_format: json
+        headers:
+          Content-Type: application/json
+          Authorization: "Bearer {{ authtoken.json.access_token }}"
+          X-F5aas-Preferred-Account-Id: "{{ beacon_acct }}"
+        body: "{{ lookup('template', './beacon/monitors/dns_monitor.j2') }}"
+        status_code: 202
+      register: createdDNSMonitors
+      delegate_to: localhost
+      loop: "{{ dns_monitors }}"
+
 
 - name: Update Telegraf on App Servers
   hosts: bacon
   gather_facts: false
-
-  vars_files:
-    - vars.yaml
   
   vars:
     beacon_token: "{{ hostvars.localhost.beacon_token }}"
@@ -123,9 +153,6 @@
   hosts: localhost
   connection: local
   gather_facts: false
-
-  vars_files:
-    - vars.yaml
 
   vars:
     provider: "{{ hostvars.bigip_east.provider }}"

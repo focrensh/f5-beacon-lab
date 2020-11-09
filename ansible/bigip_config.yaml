@@ -1,4 +1,4 @@
-- name: Download and Install RPMs
+- name: Install and Configure ATC
   hosts: localhost
   connection: local
   gather_facts: false
@@ -6,11 +6,12 @@
   vars:
     provider: "{{ hostvars.bigip_east.provider }}"
     beacon_token: "changeme"
+    monitor: http
     declarations:
       - name: Device
         file: do
-      - name: Telemetry
-        file: ts
+      # - name: Telemetry
+      #   file: ts
       - name: AS3
         file: as3
 
@@ -36,7 +37,7 @@
       vars:
         atc_method: POST
         atc_service: "{{ item.name }}"
-        atc_declaration: "{{ lookup('file', 'bigip/' + item.file + '.json') }}"
+        atc_declaration: "{{ lookup('template', 'bigip/' + item.file + '.json') }}"
         atc_delay: 10
-        atc_retries: 45
+        atc_retries: 72
       loop: "{{ declarations }}"

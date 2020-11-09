@@ -1,0 +1,66 @@
+{
+    "title": "Bacon DNS Monitors",
+    "description": "",
+    "category": "INS_CAT_OPERATIONS",
+    "severity": "INS_SEV_INFORMATIONAL",
+    "metrics": [
+        {
+            "measurement": "dns-monitor",
+            "tags": [
+                {
+                    "key": "source",
+                    "values": [
+                        "Bacon East DNS"
+                    ]
+                }
+            ],
+            "field": "healthStatus",
+            "function": "mean",
+            "metricName": "East DNS Health"
+        },
+        {
+            "measurement": "dns-monitor",
+            "tags": [
+                {
+                    "key": "source",
+                    "values": [
+                        "Bacon East DNS"
+                    ]
+                }
+            ],
+            "field": "dnsLookupMs",
+            "function": "mean",
+            "metricName": "East DNS ms"
+        },
+        {
+            "measurement": "dns-monitor",
+            "tags": [
+                {
+                    "key": "source",
+                    "values": [
+                        "Bacon West DNS"
+                    ]
+                }
+            ],
+            "field": "healthStatus",
+            "function": "mean",
+            "metricName": "West DNS Health"
+        },
+        {
+            "measurement": "dns-monitor",
+            "tags": [
+                {
+                    "key": "source",
+                    "values": [
+                        "Bacon West DNS"
+                    ]
+                }
+            ],
+            "field": "dnsLookupMs",
+            "function": "mean",
+            "metricName": "West DNS ms"
+        }
+    ],
+    "visualizationType": "VISUALIZATION_TYPE_LINE",
+    "period": "1d"
+}

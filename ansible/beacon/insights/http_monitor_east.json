@@ -59,6 +59,20 @@
             "field": "httpRequestTimeMs",
             "function": "mean",
             "metricName": "httpRequestTimeMs"
+        },
+        {
+            "measurement": "monitor",
+            "tags": [
+                {
+                    "key": "source",
+                    "values": [
+                        "Bacon East"
+                    ]
+                }
+            ],
+            "field": "dnsLookupMs",
+            "function": "mean",
+            "metricName": "dnsLookupMs"
         }
     ],
     "visualizationType": "VISUALIZATION_TYPE_LINE",

@@ -7,10 +7,6 @@
     csAPI: "https://api.cloudservices.f5.com"
     ingestAPI: "https://ingestion.ovr.prd.f5aas.com:50443"
 
-  vars_files:
-    - vars.yaml
-
-
   tasks:
 
     - set_fact:
@@ -86,11 +82,15 @@
           action: remove
           declaration:
             - monitor:
-                name: "{{ item.name }}"
+                name: "{{ item }}"
         status_code: 202
       register: deleteMonitors
       delegate_to: localhost
-      loop: "{{ http_monitors }}"
+      loop:
+        - "Bacon East"
+        - "Bacon West"
+        - "Bacon East DNS"
+        - "Bacon West DNS"
 
     - name: Wait 5 seconds for inflight data to settle
       pause:
@@ -115,6 +115,10 @@
         - name: "Bacon East"
           type: monitor
         - name: "Bacon West"
+          type: monitor
+        - name: "Bacon East DNS"
+          type: monitor
+        - name: "Bacon West DNS"
           type: monitor
         - name: "bacon-bip.local"
           type: bigip-system

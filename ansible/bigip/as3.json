@@ -93,6 +93,7 @@
                     "virtualAddresses": [
                         "0.0.0.0"
                     ],
+                    "redirect80": false,
                     "pool": "web_pool",
                     "securityLogProfiles": [
                         {
@@ -107,7 +108,7 @@
                 "web_pool": {
                     "class": "Pool",
                     "monitors": [
-                        "http"
+                        "{{ monitor }}"
                     ],
                     "members": [
                         {

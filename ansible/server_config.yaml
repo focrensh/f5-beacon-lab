@@ -34,20 +34,23 @@
         executable: pip3
       become: true
 
+    - name: Enable Ubuntu to manage docker
+      shell: usermod -aG docker ubuntu
+      become: yes
+
     - name: Copy App Files Over
       synchronize:
-        src: ../../bacon_app
-        dest: /home/ubuntu/
+        src: ../app
+        dest: /home/ubuntu/bacon_app
         rsync_opts:
           - "--exclude=node_modules"
           - "--exclude=.venv"
       become: yes
 
-
     - name: Copy NGNINX certs
       synchronize:
         src: ../../../certs
-        dest: /home/ubuntu/bacon_app/nginx-plus-nap/
+        dest: /home/ubuntu/bacon_app/app/nginx-plus-nap/
         rsync_opts:
           - "--exclude=node_modules"
           - "--exclude=.venv"
@@ -57,14 +60,23 @@
     #Docker-Compose Build/Start
     - name: Create and start services
       community.general.docker_compose:
-        project_src: /home/ubuntu/bacon_app
-        # project_name: "{{ inventory_hostname }}"
-        # build: yes
+        project_src: /home/ubuntu/bacon_app/app
+        project_name: bacon_app
+        build: yes
         restarted: yes
         services: "{{ services }}"
       register: output
       become: true
 
+    - name: Add IP address of all hosts to all hosts
+      lineinfile:
+        dest: /etc/hosts
+        line: "127.0.0.1 {{ item }}"
+        state: present
+      become: true
+      loop:
+        - react
+        - eapi
 
     # INSTALL and SETUP TELEGRAF
     - name: Import InfluxData GPG signing key [Debian/Ubuntu]
@@ -113,3 +125,14 @@
         state: restarted
       become: yes
     
+    - name: Start Locust
+      uri:
+        url: "http://localhost:8089/swarm"
+        method: POST
+        body_format: form-urlencoded
+        body:
+          user_count: 10
+          hatch_rate: 10
+          host: "{{ lb_url }}"
+        status_code: 200
+      register: locuststart

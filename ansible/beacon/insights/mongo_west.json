@@ -28,8 +28,8 @@
                     ]
                 }
             ],
-            "field": "deletes_diff",
-            "function": "mean",
+            "field": "deletes",
+            "function": "difference",
             "metricName": "Deletes"
         },
         {
@@ -42,8 +42,8 @@
                     ]
                 }
             ],
-            "field": "document_inserted_diff",
-            "function": "mean",
+            "field": "document_inserted",
+            "function": "difference",
             "metricName": "Inserts"
         },
         {
@@ -56,8 +56,8 @@
                     ]
                 }
             ],
-            "field": "document_returned_diff",
-            "function": "mean",
+            "field": "document_returned",
+            "function": "difference",
             "metricName": "Doc Returns"
         },
         {
@@ -70,8 +70,8 @@
                     ]
                 }
             ],
-            "field": "queries_diff",
-            "function": "mean",
+            "field": "queries",
+            "function": "difference",
             "metricName": "Queries"
         }
     ],

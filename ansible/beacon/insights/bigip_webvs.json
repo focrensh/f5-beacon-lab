@@ -1,0 +1,50 @@
+{
+    "title": "Bacon BIG-IP WebVS",
+    "description": "",
+    "category": "INS_CAT_OPERATIONS",
+    "severity": "INS_SEV_INFORMATIONAL",
+    "metrics": [
+        {
+            "measurement": "bigip-virtual",
+            "tags": [
+                {
+                    "key": "name",
+                    "values": [
+                        "/FrontEnd/WEB/serviceMain"
+                    ]
+                },
+                {
+                    "key": "source",
+                    "values": [
+                        "bacon-bip.local"
+                    ]
+                }
+            ],
+            "field": "ApplicationResponseTime",
+            "function": "mean",
+            "metricName": "Web ms"
+        },
+        {
+            "measurement": "bigip-virtual",
+            "tags": [
+                {
+                    "key": "name",
+                    "values": [
+                        "/FrontEnd/WEB/serviceMain"
+                    ]
+                },
+                {
+                    "key": "source",
+                    "values": [
+                        "bacon-bip.local"
+                    ]
+                }
+            ],
+            "field": "tot_requests",
+            "function": "mean",
+            "metricName": "Web Req"
+        }
+    ],
+    "visualizationType": "VISUALIZATION_TYPE_LINE",
+    "period": "1d"
+}

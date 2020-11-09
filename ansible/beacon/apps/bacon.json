@@ -1,249 +1,708 @@
 {
-  "action": "deploy",
-  "declaration": [
-    {
-      "metadata": {
-        "version": "v1"
-      },
-      "application": {
-        "name": "Bacon_NEW",
-        "description": "",
-        "labels": {
-          "latitude": "47.608013",
-          "location": "Seattle",
-          "longitude": "-122.335167"
-        },
-        "dependencies": [
-          {
-            "name": "East",
-            "description": "",
-            "labels": {},
-            "dependencies": [
-              {
-                "name": "WAF-ASM",
-                "description": "",
-                "labels": {},
-                "dependencies": [
-                  {
-                    "name": "BIG-IP",
-                    "description": "",
-                    "labels": {},
-                    "dependencies": [
-                      {
-                        "name": "MongoDB-E",
-                        "description": "",
-                        "labels": {},
-                        "dependencies": [],
-                        "metrics": [],
-                        "healthSourceSettings": {
-                          "metricsHealthAggregation": "WorstOf",
-                          "dependencyHealthAggregation": "WorstOf"
-                        },
-                        "insights": [
-                          {
-                            "name": "Bacon MongoDB East"
-                          }
-                        ]
-                      },
-                      {
-                        "name": "FrontEnd-E",
-                        "description": "",
-                        "labels": {},
-                        "dependencies": [],
-                        "metrics": [],
-                        "healthSourceSettings": {
-                          "metricsHealthAggregation": "WorstOf",
-                          "dependencyHealthAggregation": "WorstOf"
-                        },
-                        "insights": []
-                      },
-                      {
-                        "name": "API-E",
-                        "description": "",
-                        "labels": {},
-                        "dependencies": [],
-                        "metrics": [],
-                        "healthSourceSettings": {
-                          "metricsHealthAggregation": "WorstOf",
-                          "dependencyHealthAggregation": "WorstOf"
-                        },
-                        "insights": []
-                      }
-                    ],
-                    "metrics": [],
-                    "healthSourceSettings": {
-                      "metricsHealthAggregation": "WorstOf",
-                      "dependencyHealthAggregation": "WorstOf"
-                    },
-                    "insights": [
-                      {
-                        "name": "Bacon BIG-IP System"
-                      }
-                    ]
-                  }
-                ],
-                "metrics": [],
-                "healthSourceSettings": {
-                  "metricsHealthAggregation": "WorstOf",
-                  "dependencyHealthAggregation": "WorstOf"
-                },
-                "insights": []
-              }
-            ],
-            "metrics": [
-              {
-                "measurement": "cpu",
-                "tags": {
-                  "host": "bacon_east"
-                },
-                "field": "usage_user",
-                "healthSettings": {
-                  "aggregation": "Mean",
-                  "timeRange": 1,
-                  "operator": "GreaterThan",
-                  "criticalThreshold": "75",
-                  "warningThreshold": "50",
-                  "noMetricData": "KeepState"
-                },
-                "name": ""
-              }
-            ],
-            "healthSourceSettings": {
-              "metricsHealthAggregation": "WorstOf",
-              "dependencyHealthAggregation": "WorstOf"
-            },
-            "insights": [
-              {
-                "name": "Bacon VM East"
-              },
-              {
-                "name": "Bacon East Containers"
-              }
-            ]
-          },
-          {
-            "name": "West",
-            "description": "",
-            "labels": {},
-            "dependencies": [
-              {
-                "name": "WAF-EAP",
-                "description": "",
-                "labels": {},
-                "dependencies": [
-                  {
-                    "name": "NGINX Plus",
-                    "description": "",
-                    "labels": {},
-                    "dependencies": [
-                      {
-                        "name": "MongoDB-W",
-                        "description": "",
-                        "labels": {},
-                        "dependencies": [],
-                        "metrics": [],
-                        "healthSourceSettings": {
-                          "metricsHealthAggregation": "WorstOf",
-                          "dependencyHealthAggregation": "WorstOf"
-                        },
-                        "insights": [
-                          {
-                            "name": "Bacon MongoDB West"
-                          }
-                        ]
-                      },
-                      {
-                        "name": "FrontEnd-W",
-                        "description": "",
-                        "labels": {},
-                        "dependencies": [],
-                        "metrics": [],
-                        "healthSourceSettings": {
-                          "metricsHealthAggregation": "WorstOf",
-                          "dependencyHealthAggregation": "WorstOf"
-                        },
-                        "insights": []
-                      },
-                      {
-                        "name": "API-W",
-                        "description": "",
-                        "labels": {},
-                        "dependencies": [],
-                        "metrics": [],
-                        "healthSourceSettings": {
-                          "metricsHealthAggregation": "WorstOf",
-                          "dependencyHealthAggregation": "WorstOf"
-                        },
-                        "insights": []
-                      }
-                    ],
-                    "metrics": [],
-                    "healthSourceSettings": {
-                      "metricsHealthAggregation": "WorstOf",
-                      "dependencyHealthAggregation": "WorstOf"
-                    },
-                    "insights": []
-                  }
-                ],
-                "metrics": [],
-                "healthSourceSettings": {
-                  "metricsHealthAggregation": "WorstOf",
-                  "dependencyHealthAggregation": "WorstOf"
-                },
-                "insights": []
-              }
-            ],
-            "metrics": [
-              {
-                "measurement": "cpu",
-                "tags": {
-                  "host": "bacon_west"
-                },
-                "field": "usage_user",
-                "healthSettings": {
-                  "aggregation": "Mean",
-                  "timeRange": 1,
-                  "operator": "GreaterThan",
-                  "criticalThreshold": "75",
-                  "warningThreshold": "50",
-                  "noMetricData": "KeepState"
-                },
-                "name": ""
-              }
-            ],
-            "healthSourceSettings": {
-              "metricsHealthAggregation": "WorstOf",
-              "dependencyHealthAggregation": "WorstOf"
-            },
-            "insights": [
-              {
-                "name": "Bacon VM West"
-              },
-              {
-                "name": "Bacon West Containers"
-              }
-            ]
-          },
-          {
-            "name": "DNSLB",
-            "description": "",
-            "labels": {},
-            "dependencies": [],
-            "metrics": [],
-            "healthSourceSettings": {
-              "metricsHealthAggregation": "WorstOf",
-              "dependencyHealthAggregation": "WorstOf"
-            },
-            "insights": []
-          }
-        ],
-        "metrics": [],
-        "healthSourceSettings": {
-          "metricsHealthAggregation": "WorstOf",
-          "dependencyHealthAggregation": "WorstOf"
-        },
-        "insights": []
-      }
-    }
-  ]
+	"action": "deploy",
+	"declaration": [
+		{
+			"metadata": {
+				"version": "v1"
+			},
+			"application": {
+				"name": "Bacon",
+				"description": "",
+				"labels": {
+					"latitude": "47.608013",
+					"location": "Seattle",
+					"longitude": "-122.335167"
+				},
+				"dependencies": [
+					{
+						"name": "East",
+						"description": "logical region",
+						"labels": {},
+						"dependencies": [
+							{
+								"name": "WAF-ASM",
+								"description": "",
+								"labels": {},
+								"dependencies": [
+									{
+										"name": "BIG-IP",
+										"description": "",
+										"labels": {},
+										"dependencies": [
+											{
+												"name": "WEB-VS-E",
+												"description": "",
+												"labels": {},
+												"dependencies": [
+													{
+														"name": "WEB-E",
+														"description": "",
+														"labels": {},
+														"dependencies": [],
+														"metrics": [
+															{
+																"measurement": "nginx",
+																"tags": {
+																	"host": "bacon_east"
+																},
+																"field": "requests",
+																"healthSettings": {
+																	"aggregation": "Difference",
+																	"timeRange": 1,
+																	"operator": "GreaterThan",
+																	"criticalThreshold": "475",
+																	"warningThreshold": "425",
+																	"noMetricData": "KeepState"
+																},
+																"name": "requests"
+															},
+															{
+																"measurement": "http_response",
+																"tags": {
+																	"host": "bacon_east",
+																	"server": "http://react:8080"
+																},
+																"field": "http_response_code",
+																"healthSettings": {
+																	"aggregation": "Max",
+																	"timeRange": 1,
+																	"operator": "GreaterThanOrEqual",
+																	"criticalThreshold": "300",
+																	"warningThreshold": "",
+																	"noMetricData": "KeepState"
+																},
+																"name": "http_response_code"
+															}
+														],
+														"healthSourceSettings": {
+															"metricsHealthAggregation": "WorstOf",
+															"dependencyHealthAggregation": "WorstOf"
+														},
+														"insights": []
+													}
+												],
+												"metrics": [
+													{
+														"measurement": "bigip-virtual",
+														"tags": {
+															"name": "/FrontEnd/WEB/serviceMain",
+															"source": "bacon-bip.local"
+														},
+														"field": "healthStatus",
+														"healthSettings": {
+															"aggregation": "",
+															"timeRange": 1,
+															"operator": "",
+															"criticalThreshold": "",
+															"warningThreshold": "",
+															"noMetricData": "KeepState"
+														},
+														"name": "healthStatus"
+													}
+												],
+												"healthSourceSettings": {
+													"metricsHealthAggregation": "WorstOf",
+													"dependencyHealthAggregation": "WorstOf"
+												},
+												"insights": [
+													{
+														"name": "Bacon BIG-IP WebVS"
+													}
+												]
+											},
+											{
+												"name": "API-VS-E",
+												"description": "",
+												"labels": {},
+												"dependencies": [
+													{
+														"name": "API-E",
+														"description": "",
+														"labels": {},
+														"dependencies": [],
+														"metrics": [
+															{
+																"measurement": "docker_container_cpu",
+																"tags": {
+																	"container_name": "bacon_app_eapi_1",
+																	"host": "bacon_east"
+																},
+																"field": "usage_percent",
+																"healthSettings": {
+																	"aggregation": "Mean",
+																	"timeRange": 1,
+																	"operator": "GreaterThan",
+																	"criticalThreshold": "25",
+																	"warningThreshold": "10",
+																	"noMetricData": "KeepState"
+																},
+																"name": "cpu"
+															},
+															{
+																"measurement": "http_response",
+																"tags": {
+																	"host": "bacon_east",
+																	"server": "http://eapi:3000/apicheck"
+																},
+																"field": "http_response_code",
+																"healthSettings": {
+																	"aggregation": "Max",
+																	"timeRange": 1,
+																	"operator": "GreaterThanOrEqual",
+																	"criticalThreshold": "300",
+																	"warningThreshold": "",
+																	"noMetricData": "KeepState"
+																},
+																"name": "http_response_code"
+															}
+														],
+														"healthSourceSettings": {
+															"metricsHealthAggregation": "WorstOf",
+															"dependencyHealthAggregation": "WorstOf"
+														},
+														"insights": []
+													}
+												],
+												"metrics": [
+													{
+														"measurement": "bigip-virtual",
+														"tags": {
+															"name": "/FrontEnd/API/serviceMain",
+															"source": "bacon-bip.local"
+														},
+														"field": "healthStatus",
+														"healthSettings": {
+															"aggregation": "",
+															"timeRange": 1,
+															"operator": "",
+															"criticalThreshold": "",
+															"warningThreshold": "",
+															"noMetricData": "KeepState"
+														},
+														"name": "healthStatus"
+													}
+												],
+												"healthSourceSettings": {
+													"metricsHealthAggregation": "WorstOf",
+													"dependencyHealthAggregation": "WorstOf"
+												},
+												"insights": [
+													{
+														"name": "Bacon BIG-IP APIVS"
+													}
+												]
+											}
+										],
+										"metrics": [
+											{
+												"measurement": "bigip-system",
+												"tags": {
+													"source": "bacon-bip.local"
+												},
+												"field": "systemCpuUsage",
+												"healthSettings": {
+													"aggregation": "Mean",
+													"timeRange": 1,
+													"operator": "GreaterThan",
+													"criticalThreshold": "70",
+													"warningThreshold": "25",
+													"noMetricData": "KeepState"
+												},
+												"name": "systemCpuUsage"
+											},
+											{
+												"measurement": "bigip-system",
+												"tags": {
+													"source": "bacon-bip.local"
+												},
+												"field": "tmmMemoryUsage",
+												"healthSettings": {
+													"aggregation": "Mean",
+													"timeRange": 1,
+													"operator": "GreaterThan",
+													"criticalThreshold": "70",
+													"warningThreshold": "55",
+													"noMetricData": "KeepState"
+												},
+												"name": "tmmMemoryUsage"
+											}
+										],
+										"healthSourceSettings": {
+											"metricsHealthAggregation": "WorstOf",
+											"dependencyHealthAggregation": "WorstOf"
+										},
+										"insights": [
+											{
+												"name": "Bacon BIG-IP System"
+											}
+										]
+									}
+								],
+								"metrics": [],
+								"healthSourceSettings": {
+									"metricsHealthAggregation": "WorstOf",
+									"dependencyHealthAggregation": "WorstOf"
+								},
+								"insights": []
+							},
+							{
+								"name": "Beacon Monitor-E",
+								"description": "",
+								"labels": {},
+								"dependencies": [],
+								"metrics": [
+									{
+										"measurement": "monitor",
+										"tags": {
+											"source": "Bacon East"
+										},
+										"field": "healthStatus",
+										"healthSettings": {
+											"aggregation": "",
+											"timeRange": 1,
+											"operator": "",
+											"criticalThreshold": "",
+											"warningThreshold": "",
+											"noMetricData": "KeepState"
+										},
+										"name": "healthStatus"
+									}
+								],
+								"healthSourceSettings": {
+									"metricsHealthAggregation": "WorstOf",
+									"dependencyHealthAggregation": "WorstOf"
+								},
+								"insights": [
+									{
+										"name": "Bacon East Monitor"
+									}
+								]
+							},
+							{
+								"name": "VM-E",
+								"description": "",
+								"labels": {},
+								"dependencies": [
+									{
+										"name": "MongoDB-E",
+										"description": "",
+										"labels": {},
+										"dependencies": [],
+										"metrics": [
+											{
+												"measurement": "mongodb",
+												"tags": {
+													"host": "bacon_east"
+												},
+												"field": "connections_current",
+												"healthSettings": {
+													"aggregation": "Mean",
+													"timeRange": 1,
+													"operator": "GreaterThan",
+													"criticalThreshold": "25",
+													"warningThreshold": "20",
+													"noMetricData": "KeepState"
+												},
+												"name": "connections_current"
+											}
+										],
+										"healthSourceSettings": {
+											"metricsHealthAggregation": "WorstOf",
+											"dependencyHealthAggregation": "WorstOf"
+										},
+										"insights": [
+											{
+												"name": "Bacon MongoDB East"
+											}
+										]
+									}
+								],
+								"metrics": [
+									{
+										"measurement": "cpu",
+										"tags": {
+											"host": "bacon_east"
+										},
+										"field": "usage_user",
+										"healthSettings": {
+											"aggregation": "Mean",
+											"timeRange": 1,
+											"operator": "GreaterThan",
+											"criticalThreshold": "75",
+											"warningThreshold": "50",
+											"noMetricData": "KeepState"
+										},
+										"name": "usage_user"
+									}
+								],
+								"healthSourceSettings": {
+									"metricsHealthAggregation": "WorstOf",
+									"dependencyHealthAggregation": "WorstOf"
+								},
+								"insights": [
+									{
+										"name": "Bacon East Containers"
+									},
+									{
+										"name": "Bacon VM East"
+									}
+								]
+							}
+						],
+						"metrics": [],
+						"healthSourceSettings": {
+							"metricsHealthAggregation": "WorstOf",
+							"dependencyHealthAggregation": "WorstOf"
+						},
+						"insights": []
+					},
+					{
+						"name": "West",
+						"description": "logical region",
+						"labels": {},
+						"dependencies": [
+							{
+								"name": "WAF-AP",
+								"description": "",
+								"labels": {},
+								"dependencies": [
+									{
+										"name": "NGINX Plus",
+										"description": "",
+										"labels": {},
+										"dependencies": [
+											{
+												"name": "WEB-W",
+												"description": "",
+												"labels": {},
+												"dependencies": [],
+												"metrics": [
+													{
+														"measurement": "nginx",
+														"tags": {
+															"host": "bacon_west"
+														},
+														"field": "requests",
+														"healthSettings": {
+															"aggregation": "Difference",
+															"timeRange": 1,
+															"operator": "GreaterThan",
+															"criticalThreshold": "475",
+															"warningThreshold": "425",
+															"noMetricData": "KeepState"
+														},
+														"name": "requests"
+													},
+													{
+														"measurement": "http_response",
+														"tags": {
+															"host": "bacon_west",
+															"server": "http://react:8080"
+														},
+														"field": "http_response_code",
+														"healthSettings": {
+															"aggregation": "Mean",
+															"timeRange": 1,
+															"operator": "GreaterThanOrEqual",
+															"criticalThreshold": "300",
+															"warningThreshold": "",
+															"noMetricData": "KeepState"
+														},
+														"name": "http_response_code"
+													}
+												],
+												"healthSourceSettings": {
+													"metricsHealthAggregation": "WorstOf",
+													"dependencyHealthAggregation": "WorstOf"
+												},
+												"insights": []
+											},
+											{
+												"name": "API-W",
+												"description": "",
+												"labels": {},
+												"dependencies": [],
+												"metrics": [
+													{
+														"measurement": "docker_container_cpu",
+														"tags": {
+															"container_name": "bacon_app_eapi_1",
+															"host": "bacon_west"
+														},
+														"field": "usage_percent",
+														"healthSettings": {
+															"aggregation": "Mean",
+															"timeRange": 1,
+															"operator": "GreaterThan",
+															"criticalThreshold": "25",
+															"warningThreshold": "10",
+															"noMetricData": "KeepState"
+														},
+														"name": "cpu"
+													},
+													{
+														"measurement": "http_response",
+														"tags": {
+															"host": "bacon_west",
+															"server": "http://eapi:3000/apicheck"
+														},
+														"field": "http_response_code",
+														"healthSettings": {
+															"aggregation": "Mean",
+															"timeRange": 1,
+															"operator": "GreaterThanOrEqual",
+															"criticalThreshold": "300",
+															"warningThreshold": "",
+															"noMetricData": "KeepState"
+														},
+														"name": "http_response_code"
+													}
+												],
+												"healthSourceSettings": {
+													"metricsHealthAggregation": "WorstOf",
+													"dependencyHealthAggregation": "WorstOf"
+												},
+												"insights": []
+											}
+										],
+										"metrics": [
+											{
+												"measurement": "docker_container_mem",
+												"tags": {
+													"container_name": "bacon_app_lb_1",
+													"host": "bacon_west"
+												},
+												"field": "usage_percent",
+												"healthSettings": {
+													"aggregation": "Mean",
+													"timeRange": 1,
+													"operator": "GreaterThan",
+													"criticalThreshold": "25",
+													"warningThreshold": "10",
+													"noMetricData": "KeepState"
+												},
+												"name": "Mem Percent"
+											},
+											{
+												"measurement": "docker_container_cpu",
+												"tags": {
+													"container_name": "bacon_app_lb_1",
+													"host": "bacon_west"
+												},
+												"field": "usage_percent",
+												"healthSettings": {
+													"aggregation": "Mean",
+													"timeRange": 1,
+													"operator": "GreaterThan",
+													"criticalThreshold": "25",
+													"warningThreshold": "10",
+													"noMetricData": "KeepState"
+												},
+												"name": "CPU Percent"
+											}
+										],
+										"healthSourceSettings": {
+											"metricsHealthAggregation": "WorstOf",
+											"dependencyHealthAggregation": "WorstOf"
+										},
+										"insights": [
+											{
+												"name": "Bacon NGINX Plus Requests"
+											}
+										]
+									}
+								],
+								"metrics": [],
+								"healthSourceSettings": {
+									"metricsHealthAggregation": "WorstOf",
+									"dependencyHealthAggregation": "WorstOf"
+								},
+								"insights": []
+							},
+							{
+								"name": "Beacon Monitor-W",
+								"description": "",
+								"labels": {},
+								"dependencies": [],
+								"metrics": [
+									{
+										"measurement": "monitor",
+										"tags": {
+											"source": "Bacon West"
+										},
+										"field": "healthStatus",
+										"healthSettings": {
+											"aggregation": "",
+											"timeRange": 1,
+											"operator": "",
+											"criticalThreshold": "",
+											"warningThreshold": "",
+											"noMetricData": "KeepState"
+										},
+										"name": "healthStatus"
+									}
+								],
+								"healthSourceSettings": {
+									"metricsHealthAggregation": "WorstOf",
+									"dependencyHealthAggregation": "WorstOf"
+								},
+								"insights": [
+									{
+										"name": "Bacon West Monitor"
+									}
+								]
+							},
+							{
+								"name": "VM-W",
+								"description": "",
+								"labels": {},
+								"dependencies": [
+									{
+										"name": "MongoDB-W",
+										"description": "",
+										"labels": {},
+										"dependencies": [],
+										"metrics": [
+											{
+												"measurement": "mongodb",
+												"tags": {
+													"host": "bacon_west"
+												},
+												"field": "connections_current",
+												"healthSettings": {
+													"aggregation": "Mean",
+													"timeRange": 1,
+													"operator": "GreaterThan",
+													"criticalThreshold": "25",
+													"warningThreshold": "20",
+													"noMetricData": "KeepState"
+												},
+												"name": "connections_current"
+											},
+											{
+												"measurement": "mongodb",
+												"tags": {
+													"host": "bacon_west"
+												},
+												"field": "document_returned",
+												"healthSettings": {
+													"aggregation": "Difference",
+													"timeRange": 1,
+													"operator": "GreaterThan",
+													"criticalThreshold": "1000",
+													"warningThreshold": "500",
+													"noMetricData": "KeepState"
+												},
+												"name": "document_returned"
+											}
+										],
+										"healthSourceSettings": {
+											"metricsHealthAggregation": "WorstOf",
+											"dependencyHealthAggregation": "WorstOf"
+										},
+										"insights": [
+											{
+												"name": "Bacon MongoDB West"
+											}
+										]
+									}
+								],
+								"metrics": [
+									{
+										"measurement": "cpu",
+										"tags": {
+											"host": "bacon_west"
+										},
+										"field": "usage_user",
+										"healthSettings": {
+											"aggregation": "Mean",
+											"timeRange": 1,
+											"operator": "GreaterThan",
+											"criticalThreshold": "75",
+											"warningThreshold": "50",
+											"noMetricData": "KeepState"
+										},
+										"name": "usage_user"
+									}
+								],
+								"healthSourceSettings": {
+									"metricsHealthAggregation": "WorstOf",
+									"dependencyHealthAggregation": "WorstOf"
+								},
+								"insights": [
+									{
+										"name": "Bacon VM West"
+									},
+									{
+										"name": "Bacon West Containers"
+									}
+								]
+							}
+						],
+						"metrics": [],
+						"healthSourceSettings": {
+							"metricsHealthAggregation": "WorstOf",
+							"dependencyHealthAggregation": "WorstOf"
+						},
+						"insights": []
+					},
+					{
+						"name": "DNS",
+						"description": "",
+						"labels": {},
+						"dependencies": [],
+						"metrics": [
+							{
+								"measurement": "dns-monitor",
+								"tags": {
+									"source": "Bacon East DNS"
+								},
+								"field": "healthStatus",
+								"healthSettings": {
+									"aggregation": "",
+									"timeRange": 1,
+									"operator": "",
+									"criticalThreshold": "",
+									"warningThreshold": "",
+									"noMetricData": "KeepState"
+								},
+								"name": "East DNS Health"
+							},
+							{
+								"measurement": "dns-monitor",
+								"tags": {
+									"source": "Bacon West DNS"
+								},
+								"field": "healthStatus",
+								"healthSettings": {
+									"aggregation": "",
+									"timeRange": 1,
+									"operator": "",
+									"criticalThreshold": "",
+									"warningThreshold": "",
+									"noMetricData": "KeepState"
+								},
+								"name": "West DNS Health"
+							}
+						],
+						"healthSourceSettings": {
+							"metricsHealthAggregation": "WorstOf",
+							"dependencyHealthAggregation": "WorstOf"
+						},
+						"insights": [
+							{
+								"name": "Bacon DNS Monitors"
+							}
+						]
+					}
+				],
+				"metrics": [],
+				"healthSourceSettings": {
+					"metricsHealthAggregation": "WorstOf",
+					"dependencyHealthAggregation": "WorstOf"
+				},
+				"insights": []
+			}
+		}
+	]
 }
