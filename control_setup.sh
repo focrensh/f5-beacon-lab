@@ -42,20 +42,28 @@ password: 3eaconlab
 cert: false
 EOF
 
-mkdir -p /home/ubuntu/.local/share/code-server/User
-cat > /home/ubuntu/.local/share/code-server/User/settings.json << EOF
+mkdir -p /home/ubuntu/.vscode
+cat > /home/ubuntu/.vscode/settings.json << EOF
 {
     "workbench.colorTheme": "Visual Studio Dark",
     "terminal.integrated.shell.linux": "/bin/bash"
 }
 EOF
 
-cat > /home/ubuntu/.local/share/code-server/settings.json << EOF
-{
-    "workbench.colorTheme": "Visual Studio Dark",
-    "terminal.integrated.shell.linux": "/bin/bash"
-}
-EOF
+# mkdir -p /home/ubuntu/.local/share/code-server/User
+# cat > /home/ubuntu/.local/share/code-server/User/settings.json << EOF
+# {
+#     "workbench.colorTheme": "Visual Studio Dark",
+#     "terminal.integrated.shell.linux": "/bin/bash"
+# }
+# EOF
+
+# cat > /home/ubuntu/.local/share/code-server/settings.json << EOF
+# {
+#     "workbench.colorTheme": "Visual Studio Dark",
+#     "terminal.integrated.shell.linux": "/bin/bash"
+# }
+# EOF
 
 chown -R $user:$user $home
 systemctl enable --now code-server@ubuntu
