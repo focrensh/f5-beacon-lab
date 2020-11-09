@@ -57,9 +57,15 @@
         atc_service: Telemetry
         atc_declaration: "{{ lookup('template', '../bigip/ts.json') }}"
 
-    - name: Remove file (delete file)
+    - name: Remove nginx certs
       file:
         path: "{{ item }}"
         state: absent
       become: yes
       loop: "{{ lookup('fileglob', '/home/ubuntu/certs/nginx*', wantlist=True) }}"
+
+    - name: Remove devel flag file
+      file:
+        path: /home/ubuntu/devel
+        state: absent
+      become: yes
