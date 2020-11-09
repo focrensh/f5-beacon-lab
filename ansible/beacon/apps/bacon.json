@@ -362,7 +362,7 @@
 						"labels": {},
 						"dependencies": [
 							{
-								"name": "WAF-EAP",
+								"name": "WAF-AP",
 								"description": "",
 								"labels": {},
 								"dependencies": [
