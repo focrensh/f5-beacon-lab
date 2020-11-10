@@ -1,0 +1,143 @@
+{
+    "title": "Bacon BIG-IP TLS Metrics",
+    "description": "",
+    "category": "INS_CAT_OPERATIONS",
+    "metrics": [
+        {
+            "measurement": "bigip-virtual",
+            "tags": [
+                {
+                    "key": "clientSSLProfileName",
+                    "values": [
+                        "/FrontEnd/WEB/webtls"
+                    ]
+                },
+                {
+                    "key": "source",
+                    "values": [
+                        "bacon-bip.local"
+                    ]
+                }
+            ],
+            "field": "totClientSslTlsv12Connections",
+            "function": "difference",
+            "metricName": "TLS1.2"
+        },
+        {
+            "measurement": "bigip-virtual",
+            "tags": [
+                {
+                    "key": "source",
+                    "values": [
+                        "bacon-bip.local"
+                    ]
+                },
+                {
+                    "key": "clientSSLProfileName",
+                    "values": [
+                        "/FrontEnd/WEB/webtls"
+                    ]
+                }
+            ],
+            "field": "totClientSslTlsv11Connections",
+            "function": "difference",
+            "metricName": "TLS1.1"
+        },
+        {
+            "measurement": "bigip-virtual",
+            "tags": [
+                {
+                    "key": "source",
+                    "values": [
+                        "bacon-bip.local"
+                    ]
+                },
+                {
+                    "key": "clientSSLProfileName",
+                    "values": [
+                        "/FrontEnd/WEB/webtls"
+                    ]
+                }
+            ],
+            "field": "totClientSslv3Connections",
+            "function": "difference",
+            "metricName": "SSLv3"
+        },
+        {
+            "measurement": "bigip-virtual",
+            "tags": [
+                {
+                    "key": "clientSSLProfileName",
+                    "values": [
+                        "/FrontEnd/WEB/webtls"
+                    ]
+                },
+                {
+                    "key": "source",
+                    "values": [
+                        "bacon-bip.local"
+                    ]
+                }
+            ],
+            "field": "totClientSslHandshakeFailures",
+            "function": "difference",
+            "metricName": "Errors"
+        },
+        {
+            "measurement": "bigip-virtual",
+            "tags": [
+                {
+                    "key": "source",
+                    "values": [
+                        "bacon-bip.local"
+                    ]
+                },
+                {
+                    "key": "name",
+                    "values": [
+                        "/FrontEnd/WEB/serviceMain"
+                    ]
+                }
+            ],
+            "field": "curClientSslConnections",
+            "function": "mean",
+            "metricName": "Connections"
+        },
+        {
+            "measurement": "bigip-virtual",
+            "tags": [
+                {
+                    "key": "source",
+                    "values": [
+                        "bacon-bip.local"
+                    ]
+                },
+                {
+                    "key": "name",
+                    "values": [
+                        "/FrontEnd/WEB/serviceMain"
+                    ]
+                }
+            ],
+            "field": "tot_requests",
+            "function": "mean",
+            "metricName": "Requests"
+        },
+        {
+            "measurement": "bigip-system",
+            "tags": [
+                {
+                    "key": "source",
+                    "values": [
+                        "bacon-bip.local"
+                    ]
+                }
+            ],
+            "field": "systemCpuUsage",
+            "function": "mean",
+            "metricName": "CPU"
+        }
+    ],
+    "visualizationType": "VISUALIZATION_TYPE_LINE",
+    "period": "1d"
+}
