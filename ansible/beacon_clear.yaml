@@ -91,6 +91,8 @@
         - "Bacon West"
         - "Bacon East DNS"
         - "Bacon West DNS"
+        - "Bacon East API"
+        - "Bacon West API"
 
     - name: Wait 5 seconds for inflight data to settle
       pause:
@@ -119,6 +121,10 @@
         - name: "Bacon East DNS"
           type: monitor
         - name: "Bacon West DNS"
+          type: monitor
+        - name: "Bacon West API"
+          type: monitor
+        - name: "Bacon West API"
           type: monitor
         - name: "bacon-bip.local"
           type: bigip-system
