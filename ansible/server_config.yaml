@@ -58,6 +58,17 @@
       become: yes
 
     #Docker-Compose Build/Start
+    - name: Restart NGINX Plus (dont build)
+      community.general.docker_compose:
+        project_src: /home/ubuntu/bacon_app/app
+        project_name: bacon_app
+        restarted: yes
+        services:
+          - lb
+      register: np_output
+      become: true
+      when: inventory_hostname == "bacon_west"
+
     - name: Create and start services
       community.general.docker_compose:
         project_src: /home/ubuntu/bacon_app/app
