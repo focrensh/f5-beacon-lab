@@ -13,6 +13,7 @@ services:
     build: ./eapi/.
     ports:
       - "3000:3000"
+      - "3001:3000"
   mongo:
     image: mongo
     restart: always

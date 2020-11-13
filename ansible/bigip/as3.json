@@ -180,6 +180,12 @@
                             "serverAddresses": [
                                 "10.1.1.5"
                             ]
+                        },
+                        {
+                            "servicePort": 3001,
+                            "serverAddresses": [
+                                "10.1.1.5"
+                            ]
                         }
                     ]
                 },

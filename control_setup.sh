@@ -32,21 +32,6 @@ cat > /home/ubuntu/.vscode/settings.json << EOF
 }
 EOF
 
-# mkdir -p /home/ubuntu/.local/share/code-server/User
-# cat > /home/ubuntu/.local/share/code-server/User/settings.json << EOF
-# {
-#     "workbench.colorTheme": "Visual Studio Dark",
-#     "terminal.integrated.shell.linux": "/bin/bash"
-# }
-# EOF
-
-# cat > /home/ubuntu/.local/share/code-server/settings.json << EOF
-# {
-#     "workbench.colorTheme": "Visual Studio Dark",
-#     "terminal.integrated.shell.linux": "/bin/bash"
-# }
-# EOF
-
 chown -R $user:$user $home
 systemctl enable --now code-server@ubuntu
 
@@ -70,6 +55,7 @@ ansible-galaxy install f5devcentral.atc_deploy,v0.11.0 -p ./roles/ --force
 ansible-playbook server_config.yaml
 ansible-playbook bigip_config.yaml
 
+chmod +x /home/ubuntu/bacon_app/scenarios/*
 
 sleep 15
 echo "Ready"

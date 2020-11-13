@@ -1,7 +1,7 @@
 Beacon Bacon Lab
 ================
 
-Deploy and explore an example application (**The Bacon App**) within F5 Beacon. Work through various sections which focus on workflows that you will encounter while leveraging F5 Beacon. Use Beacons app-centric approach to reduce Mean-time-to-Innosense (MTTI) and Mean-time-to-Know(MTTK). Create and configure application models, ingest various types of data/metrics, build dashbaords, and identify problems in your applications.
+Deploy and explore an example application (**The Bacon App**) within F5 Beacon. Work through various sections which focus on workflows that you will encounter while leveraging F5 Beacon. Use Beacons app-centric approach to reduce Mean-time-to-Innosense (MTTI) and Mean-time-to-Know(MTTK). Create and configure application models, ingest various types of data/metrics, build dashbaords, and identify problems in your environment.
 
 Sections
 --------
@@ -16,7 +16,6 @@ Sections
 Diagrams
 --------
 
-* App Diagram (placeholder)
 |bacon_ingest|
 
 .. toctree::
