@@ -10,7 +10,7 @@ Steps
 
    .. code:: shell
 
-      ~/bacon_app/scenarios/scenario1.sh
+      ~/f5-beacon-lab/scenarios/scenario1.sh
 
 #. After 1-2 minutes of the playbook running, navigate to the F5 Beacon portal to the **Application Landscape >> List View**. You will notice that the application is showing either Critical or Warning state. The state will eventually transition to Critical but may pass through Warning as the CPU rises. If your state still shows Healthy, try refreshing the page until it updates. Notice that the **Health Info** column gives you a preview of what metric most recently impacted the health of the application.
 

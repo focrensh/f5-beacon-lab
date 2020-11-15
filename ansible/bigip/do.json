@@ -17,7 +17,8 @@
             "class": "Provision",
             "ltm": "nominal",
             "asm": "nominal",
-            "avr": "nominal"
+            "avr": "nominal",
+            "gtm": "nominal"
         },
         "analytics": {
             "class": "Analytics",

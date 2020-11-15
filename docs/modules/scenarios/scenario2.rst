@@ -13,7 +13,7 @@ Create the Outage
 
    .. code:: shell
 
-      ~/bacon_app/scenarios/scenario2.sh
+      ~/f5-beacon-lab/scenarios/scenario2.sh
 
    The script runs an ansible playbook that should have no errors or failures:
 
@@ -27,6 +27,8 @@ Create the Outage
    - The **WEB-VS-E** component which represents the Web VirtualServer on the BIG-IP is reporting a Critical status.
    - Just as important to note, is that the **WEB-E** appliation itself is still reporting green. This means the internal http monitor from telegraf is still passing. This further confirms that the issue appears to be with the BIG-IP VS.
    - The app-map also shows that the entire **West** region appears to be in a Healthy state.
+
+   .. NOTE:: UDF proxies the services and can cache the page us **UP** when the BIG-IP Virtual is actually offline. The Beacon Monitor may be hitting the UDF cache and stay up longer than expected. If your app-map shows the VS critical but the Monitor healthy, this is why. In another scenario we force the response string for the Beacon monitor to fail regardless of the cache.
 
    |app_map|
 

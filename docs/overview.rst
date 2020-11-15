@@ -41,6 +41,7 @@ Application Landscape
    - **Properties:** Meta-data properties/labels associated with the top level component of the application.
 
    |
+
    We will be leveraging these different tabs throughout the lab as more data and events occur.
 
 #. Navigate back to the the **Application Map** tab to dig a bit deeper.
@@ -56,6 +57,7 @@ Application Landscape
    - Disabled(blue)
 
    |
+
    While you are in the default `Read Only` mode, selecting a component on the Application Map will show details about that component including Health, Associated Insights, and Metric-Health-Conditions.
 
 #. As an example, select the **MongoDB-E** component to see the detail view slide out.
@@ -106,6 +108,7 @@ Application Landscape
    - **Filters:** Narrows down the specific metric to use (an example would be filtering to a specific BIG-IP VS name and BIG-IP Host as that would be unique )
 
    |
+   
    **Metric Condition**
 
    This section defines when this metric triggers a **Critical** or **Warning** condition. In this example the metric is evaluated every 1min, if the **Mean** of that data is **Greater than** the threshold of **20** or **25** set the health accordingly.

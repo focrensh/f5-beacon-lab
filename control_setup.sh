@@ -39,11 +39,11 @@ apt update
 apt install docker.io python3-pip python3-venv rpm jq -y
 
 cd /home/ubuntu/
-rm -rf bacon_app/
+rm -rf f5-beacon-lab/
 python3 -m venv .venv
 source ./.venv/bin/activate
-git clone https://github.com/focrensh/bacon_app
-cd bacon_app/ansible
+git clone https://github.com/f5devcentral/f5-beacon-lab
+cd f5-beacon-lab/ansible
 
 if [ "$flag" = "devel" ]; then
     git checkout devel
@@ -55,7 +55,8 @@ ansible-galaxy install f5devcentral.atc_deploy,v0.11.0 -p ./roles/ --force
 ansible-playbook server_config.yaml
 ansible-playbook bigip_config.yaml
 
-chmod +x /home/ubuntu/bacon_app/scenarios/*
+chmod +x /home/ubuntu/f5-beacon-lab/scenarios/*
+chown -R $user:$user $home
 
 sleep 15
 echo "Ready"
