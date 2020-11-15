@@ -1,7 +1,7 @@
-Scenario 4: Monitor the Bacon API with Beacon
-=============================================
+Ingest 1: Create an HTTP(s) Beacon Monitor and Insight
+======================================================
 
-In this scenario, we are going to create a new Beacon monitor to check the API endpoints directly. Our environment already has internal monitoring coming from Telegraf for the API, but we should add an external test from Beacon so that we have visiblity into what a user would experience.
+In this example, we are going to create a new Beacon monitor to check the API endpoints directly. Our environment already has internal monitoring coming from Telegraf for the API, but we should add an external test from Beacon so that we have visiblity into what a user would experience.
 
 Steps
 -----
@@ -32,15 +32,28 @@ Create the Monitor
 
    .. NOTE:: We are leaving the other settings default within the monitor, but notice that we have control over many aspects including HTTP method, how many failures must occur in order to be considered `Critical`, monitor timeout, redirect following, request body/headers, etc.
 
+   |mon_config|
+
    Select **Save & Close** at the bottom of the monitor.
 
-   |mon_config|
+Review the Monitor and SSL Report
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#. After about 1 minute, select the row (not the name itself) for the new monitor that you just created called **Bacon West API**. You will see a summary of this monitor including its health, overall latency, latency breakdown, and past health events. 
+
+   |row_click|
+
+   |mon_slideout|
+
+#. At the top of the slide out, select the link for **SSL** to see the analysis that Beacon has performed on endpoint. This will show information such as protocols, ciphers, vulnerabilities, and a score related to the SSL landscape.
+
+   |ssl_report|
+
 
 
 Create an Insight
 ^^^^^^^^^^^^^^^^^
 
-#. The insight we are going to create will visualize multiple metrics that come from the API monitor we just created such as DNS latency, TLS Latency, httprRequest time, etc. Within the Beacon portal navigate to **Insights** and select **Create**.
+#. All of the data that you were seeing within the summary view of the monitor is also available for creating custom insights within Beacon. The insight we are going to create will visualize multiple metrics such as DNS latency, TLS Latency, httprRequest time, etc. Within the Beacon portal navigate to **Insights** and select **Create**.
 
 #. For the first metric select the following values and click **Run**
 
@@ -107,7 +120,7 @@ Update the Bacon application
 
 #. Click **Save & Continue**
 
-   On this page you can see that the **API-W** component already has 2 other **Metric Health Conditons** associated with it. One of them is for cpu level of the docker container and the other is the http response code that is returned by a Telegraf monitor. In the next step we will add one from our new Beacon monitor.
+   On this page you can see that the **API-W** component already has 2 other **Metric Health Conditons** associated with it. One of them is for cpu level of the docker container and the other is the http response code that is returned by a Telegraf monitor. Let's add one from our new Beacon monitor.
 
 #. Click on **Add** within **Metric Health Conditons** and fill out the form with the parameters below and then select **Add**.
 
@@ -140,37 +153,43 @@ Update the Bacon application
 
    |sbs_insight| |sbs_mhc|
 
-.. |createnew| image:: images/scen4/createnew.png
+.. |createnew| image:: images/ingest1/createnew.png
     :scale: 75 %
-.. |west_api_udf| image:: images/scen4/west_api_udf.png
+.. |west_api_udf| image:: images/ingest1/west_api_udf.png
     :scale: 75 %
-.. |apicheck| image:: images/scen4/apicheck.png
+.. |apicheck| image:: images/ingest1/apicheck.png
     :scale: 100 %
-.. |mon_config| image:: images/scen4/mon_config.png
+.. |mon_config| image:: images/ingest1/mon_config.png
     :scale: 60 %
-.. |insight_config| image:: images/scen4/insight_config.png
+.. |insight_config| image:: images/ingest1/insight_config.png
     :scale: 60 %
-.. |adjust_insight| image:: images/scen4/adjust_insight.gif
+.. |adjust_insight| image:: images/ingest1/adjust_insight.gif
     :scale: 60 %
-.. |plus| image:: images/scen4/plus.png
+.. |plus| image:: images/ingest1/plus.png
     :scale: 100 %
-.. |3metrics| image:: images/scen4/3metrics.png
+.. |3metrics| image:: images/ingest1/3metrics.png
     :scale: 75 %
-.. |save_insight| image:: images/scen4/save_insight.png
+.. |save_insight| image:: images/ingest1/save_insight.png
     :scale: 75 %
-.. |edit_mode| image:: images/scen4/edit_mode.png
+.. |edit_mode| image:: images/ingest1/edit_mode.png
     :scale: 100 %
-.. |api_w_component| image:: images/scen4/api_w_component.png
+.. |api_w_component| image:: images/ingest1/api_w_component.png
     :scale: 100 %
-.. |associate_insight| image:: images/scen4/associate_insight.png
+.. |associate_insight| image:: images/ingest1/associate_insight.png
     :scale: 100 %
-.. |mhc_form| image:: images/scen4/mhc_form.png
+.. |mhc_form| image:: images/ingest1/mhc_form.png
     :scale: 100 %
-.. |all3_mhc| image:: images/scen4/all3_mhc.png
+.. |all3_mhc| image:: images/ingest1/all3_mhc.png
     :scale: 100 %
-.. |component| image:: images/scen4/component.png
+.. |component| image:: images/ingest1/component.png
     :scale: 100 %
-.. |sbs_insight| image:: images/scen4/sbs_insight.png
+.. |sbs_insight| image:: images/ingest1/sbs_insight.png
     :width: 49 %
-.. |sbs_mhc| image:: images/scen4/sbs_mhc.png
+.. |sbs_mhc| image:: images/ingest1/sbs_mhc.png
     :width: 49 %
+.. |row_click| image:: images/ingest1/row_click.png
+    :scale: 75 %
+.. |mon_slideout| image:: images/ingest1/mon_slideout.png
+    :scale: 60 %
+.. |ssl_report| image:: images/ingest1/ssl_report.png
+    :scale: 60 %

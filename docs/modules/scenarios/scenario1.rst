@@ -6,17 +6,11 @@ In this scenario, we will run an ansible playbook which will consume CPU cycles 
 Steps
 -----
 
-#. Activate the python virtual environment installed by the UDF setup scripts:
+#. Run the ``scenario1.sh`` script to spike the CPU on one of the VMs. This script takes around 5 min to finish, but after only 1-2 min we should see the metrics updating health within the Beacon portal.
 
-   ``source /home/ubuntu/.venv/bin/activate``
+   .. code:: shell
 
-#. Change directory to the ansible folder:
-
-   ``cd /home/ubuntu/bacon_app/ansible``
-
-#. Run the **scenario1** playbook to spike the CPU on one of the VMs. This playbook takes around 5 min to finish, but after only 1-2 min we should see the metrics updating health within the Beacon portal.
-
-   ``ansible-playbook scenarios/scenario1.yaml``
+      ~/bacon_app/scenarios/scenario1.sh
 
 #. After 1-2 minutes of the playbook running, navigate to the F5 Beacon portal to the **Application Landscape >> List View**. You will notice that the application is showing either Critical or Warning state. The state will eventually transition to Critical but may pass through Warning as the CPU rises. If your state still shows Healthy, try refreshing the page until it updates. Notice that the **Health Info** column gives you a preview of what metric most recently impacted the health of the application.
 

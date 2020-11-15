@@ -6,19 +6,16 @@ In this scenario, we will cause the BIG-IP LTM Pool for the East web-service to 
 Steps
 -----
 
-#. Activate the python virtual environment installed by the UDF setup scripts:
+Create the Outage
+^^^^^^^^^^^^^^^^^
 
-   ``source /home/ubuntu/.venv/bin/activate``
+#. Run the ``scenario2.sh`` script to bring down the BIG-IP VirtualServer for the web server in the East region.
 
-#. Change directory to the ansible folder:
+   .. code:: shell
 
-   ``cd /home/ubuntu/bacon_app/ansible``
+      ~/bacon_app/scenarios/scenario2.sh
 
-#. Run the **scenario2** playbook to spike the CPU on one of the VMs. This will cause the monitor to begin failing on the BIG-IP.
-
-   ``ansible-playbook scenarios/scenario2.yaml``
-
-   The playbook should run with no errors or failures:
+   The script runs an ansible playbook that should have no errors or failures:
 
    |pbrun|
 
@@ -50,6 +47,11 @@ Steps
 #. Now select the **WEB-VS-E** component and you can see that the health Metric has also increaed to an unhealthy level. Since this component has a **metric-health-conditon** associated with a BIG-IP VirtualServer, we can correlate that the VirtualServer is having issues.
 
    |web_vs_health| 
+
+
+Fix the Outage
+^^^^^^^^^^^^^^
+Now that we know which component is having the issue, we can go to the BIG-IP to resolve the outage. For the sake of the demo, we will guide you to the correct section within BIG-IP.
 
 
 #. Login to the TMUI of the BIG-IP so that we can find and fix the issue. From the UDF portal select the **Access** dropdown for the **BIG-IP** instance and select **TMUI**.
