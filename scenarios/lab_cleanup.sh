@@ -2,4 +2,4 @@
 
 source /home/ubuntu/.venv/bin/activate
 cd /home/ubuntu/f5-beacon-lab/ansible
-ansible-playbook scenarios/scenario1.yaml
+ansible-playbook lab_cleanup.yaml

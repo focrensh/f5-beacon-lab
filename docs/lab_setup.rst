@@ -25,14 +25,19 @@ Steps
 
 #. To allow the lab to provision your Beacon account we need to update enviornment variables with your F5CS information. Update the following commands with your information and paste them into the terminal.
 
+   .. NOTE:: You may recieve a popup when pasting into VSCODE that looks like the image below, make sure to select **Allow** in order to use the clipboard.
+      |allowpaste|
+
+   You can retrieve your F5CS account ID by navigating to **Accounts** and copying it from the URI in the browser as below
+   |acctid|
+
    .. code:: shell
    
       export BEACON_UN='username'
       export BEACON_PW='password'
       export BEACON_ACCT='acctid'
 
-   .. NOTE:: You can retrieve your F5CS account ID by navigating to **Accounts** and copying it from the URI in the browser as below
-      |acctid|
+
 
 #. Run the ``lab_setup.sh`` scenario to configure your Beacon account and update the infrastructure with a token to send Telemetry metrics to Beacon. Below is a summary of what will be created:
 
@@ -50,7 +55,7 @@ Steps
 
    .. code:: shell
 
-      ~/bacon_app/scenarios/lab_setup.sh
+      ~/f5-beacon-lab/scenarios/lab_setup.sh
 
 
    All Tasks should come back as **ok** or **changed**:
@@ -69,3 +74,4 @@ Your environment should now be setup to begin the lab.
 .. |vars_update| image:: images/lab_setup/vars_update.png
 .. |beacon_conf_run| image:: images/lab_setup/beacon_conf_run.png
 .. |acctid| image:: images/lab_setup/acctid.png
+.. |allowpaste| image:: images/lab_setup/allowpaste.png

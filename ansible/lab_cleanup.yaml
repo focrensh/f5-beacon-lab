@@ -1,4 +1,46 @@
-- name: Configure Beacon
+- name: Clear TS Token
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars:
+    provider: "{{ hostvars.bigip_east.provider }}"
+    beacon_token: "changeme"
+
+  tasks:
+
+    - name: Wait for BIG-IP
+      bigip_wait:
+        timeout: 600
+        provider: "{{ provider }}"
+      delegate_to: localhost
+
+    - name: TS Update
+      include_role:
+        name: f5devcentral.atc_deploy
+      vars:
+        atc_method: POST
+        atc_service: Telemetry
+        atc_declaration: "{{ lookup('template', '../bigip/ts.json') }}"
+
+
+- name: Stop Telegraf
+  hosts: bacon
+  gather_facts: false
+  
+  vars:
+    - beacon_token: "changeme"
+
+  tasks:
+
+    - name: Stop Telegraf
+      service:
+        name: telegraf
+        state: stopped
+      become: yes
+
+            
+- name: Clear Beacon
   hosts: control
   gather_facts: false
   connection: local
@@ -122,7 +164,7 @@
           type: monitor
         - name: "Bacon West DNS"
           type: monitor
-        - name: "Bacon West API"
+        - name: "Bacon East API"
           type: monitor
         - name: "Bacon West API"
           type: monitor
